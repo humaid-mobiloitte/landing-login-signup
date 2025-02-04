@@ -25,13 +25,13 @@ const styles = {
       height: '100%',
     },
     formContainer: {
-      padding: '30px',
+      padding: '2.5%',
       backgroundColor: '#fff',
     },
     title: {
       marginBottom: '20px',
-      fontWeight: 600,
-      textAlign: 'center',
+      fontWeight: 700,
+      fontSize:'4 rem'
     },
     inputGroup: {
       marginBottom: '15px',

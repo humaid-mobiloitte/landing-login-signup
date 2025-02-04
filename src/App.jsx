@@ -2,9 +2,11 @@ import MainScreen from "./assets/MainScreen"
 import CssBaseline from '@mui/material/CssBaseline';
 import Login from "./assets/login";
 import { useState } from "react";
+import CancelIcon from '@mui/icons-material/Cancel';
 
 function App() {
   const [authComponent, setAuthComponent] = useState(null);
+  
 
   return (
     <>
@@ -20,13 +22,8 @@ function App() {
           justifyContent: 'center', zIndex: 2000
         }}>
           <div>
+            <div style={{display:'flex',justifyContent:'flex-end',margin:'0',padding:'0',color:'white'}}><CancelIcon onClick={() => setAuthComponent(null)}/></div>
             {authComponent}
-            {/* YE NHI CHAHIYE, UPAR CROSS CHAHIYE */}
-{/*             
-            <button onClick={() => setAuthComponent(null)} style={{
-              marginTop: '10px', display: 'block', width: '100%',
-              padding: '10px', background: 'red', color: 'white', border: 'none', borderRadius: '5px'
-            }}>Close</button> */}
           </div>
         </div>
       )}

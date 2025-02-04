@@ -10,6 +10,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
 import Login from './login';
 import Signup from './Signup';
+import OTP from './otp'
 
 const pages = ['Home', 'Browse Jobs', 'Find Job', 'Employer', 'Blog'];
 
@@ -25,7 +26,7 @@ function TopNavBar({ setAuthComponent }) {
   };
 
   return (
-    <AppBar sx={{ mt: '0.5%', padding: '0 1% 0 1%', background: 'white', boxShadow: 'none'}}> 
+    <AppBar sx={{ mt: '0.5%', padding: '0 1% 0 1%', background: 'white', boxShadow: 'none', fontFamily:'inter'}}> 
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* LOGO */}
@@ -39,7 +40,7 @@ function TopNavBar({ setAuthComponent }) {
               my: 1, backgroundColor: '#1f9874',
               minWidth: '100px', minHeight: '45px',
               width: { xs: '100px', md: '120px' },
-              height: { xs: '45px', md: '53px' }, borderRadius: '10px'
+              height: { xs: '45px', md: '53px' }, borderRadius: '10px', fontFamily:'inter'
             }}>Menu</Button>
             <Menu
               anchorEl={anchorElNav}
@@ -49,11 +50,11 @@ function TopNavBar({ setAuthComponent }) {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" sx={{textTransform: 'none'}}>{page}</Typography>
                 </MenuItem>
               ))}
               <MenuItem>
-                <Button variant="outlined" fullWidth onClick={() => setAuthComponent(<Signup />)} sx={{
+                <Button variant="outlined" fullWidth onClick={() => setAuthComponent(<Signup setAuthComponent={setAuthComponent}/>)} sx={{
                   my: 1, border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
                   minWidth: '100px', minHeight: '45px',
                   width: { xs: '100px', md: '120px' },
@@ -61,7 +62,7 @@ function TopNavBar({ setAuthComponent }) {
                 }}>Sign Up</Button>
               </MenuItem>
               <MenuItem>
-                <Button variant="contained" fullWidth onClick={() => setAuthComponent(<Login />)} sx={{
+                <Button variant="contained" fullWidth onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent}/>)} sx={{
                   backgroundColor: '#1f9874',
                   minWidth: '100px', minHeight: '45px',
                   width: { xs: '100px', md: '120px' },
@@ -74,7 +75,7 @@ function TopNavBar({ setAuthComponent }) {
           {/* Normal Navigation for Desktop */}
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button key={page} sx={{ my: 2, color: 'black', display: 'block' }}>{page}</Button>
+              <Button key={page} sx={{ my: 2, color: 'black', display: 'block', fontFamily:'inter' }}>{page}</Button>
             ))}
           </Box>
 
@@ -85,10 +86,10 @@ function TopNavBar({ setAuthComponent }) {
               width: { xs: '100px', md: '120px' },
               height: { xs: '45px', md: '53px' }, borderRadius: '10px'
             }}}>
-            <Button variant="outlined" onClick={() => setAuthComponent(<Signup />)} sx={{ border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', color: 'black' }}>
+            <Button variant="outlined" onClick={() => setAuthComponent(<Signup setAuthComponent={setAuthComponent}/>)} sx={{ border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', color: 'black',textTransform: 'none', fontFamily:'inter' }}>
               Sign Up
             </Button>
-            <Button variant="contained" onClick={() => setAuthComponent(<Login />)} sx={{ backgroundColor: '#1f9874' }}>
+            <Button variant="contained" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} sx={{ backgroundColor: '#1f9874',textTransform: 'none', fontFamily:'inter' }}>
               Login
             </Button>
           </Stack>

@@ -6,7 +6,7 @@ const HomePage = () => {
     <Box
       sx={{
         flexGrow: 1,
-        fontFamily: "Arial, sans-serif",
+        fontFamily: "inter",
         backgroundImage: "url('src/assets/images/landing_page_background.svg')", // Replace with SVG path
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -35,12 +35,12 @@ const HomePage = () => {
             // mr: { md: "25%" }, // Adjust this value to position the right edge near the center
           }}
         >
-          <Typography variant="h3" sx={{ fontWeight: "bold", mb: 2, fontSize: { xs: "2rem", md: "3rem" } }}>
+          <Typography variant="h3" sx={{ fontWeight: "900", mb: 2, fontSize: { xs: "2rem", md: "3rem" }, fontFamily:'inter' }}>
             Find Your Dream Job <br />
             with AI-Powered <br />
             Recommendations
           </Typography>
-          <Typography variant="body1" color="textSecondary" sx={{ mb: 3, fontSize: { xs: "0.9rem", md: "1rem" } }}>
+          <Typography variant="body1" color="textSecondary" sx={{ mb: 3, fontSize: { xs: "0.9rem", md: "1rem" }, fontFamily:'inter' }}>
             Upload Your CV And Let Our AI Find The Best Matches For You
           </Typography>
 
@@ -57,10 +57,10 @@ const HomePage = () => {
               alignItems: "center",
             }}
           >
-            <TextField placeholder="Industry" variant="outlined" size="small" sx={{ flex: 1, width: { xs: "100%", sm: "auto" } }} />
-            <TextField placeholder="Location" variant="outlined" size="small" sx={{ flex: 1, width: { xs: "100%", sm: "auto" } }} />
-            <TextField placeholder="Search Job" variant="outlined" size="small" sx={{ flex: 2, width: { xs: "100%", sm: "auto" } }} />
-            <Button variant="contained" sx={{ backgroundColor: '#1f9874' }}>Find Job</Button>
+            <TextField placeholder="Industry" variant="outlined" size="small" sx={{ flex: 1, width: { xs: "100%", sm: "auto" },fontFamily:'inter' }} />
+            <TextField placeholder="Location" variant="outlined" size="small" sx={{ flex: 1, width: { xs: "100%", sm: "auto"},fontFamily:'inter' }} />
+            <TextField placeholder="Search Job" variant="outlined" size="small" sx={{ flex: 2, width: { xs: "100%", sm: "auto" },fontFamily:'inter' }} />
+            <Button variant="contained" sx={{ backgroundColor: '#1f9874',fontFamily:'inter',textTransform:'None' }}>Find Job</Button>
           </Box>
         </Box>
 
