@@ -1,12 +1,14 @@
-import React from 'react'
-import TopNavBar from './TopNavBar'
+import React from 'react';
+import TopNavBar from './TopNavBar';
+import HomePage from './HomePage';
 
-function MainScreen() {
+function MainScreen({ setAuthComponent }) {
   return (
     <>
-      <TopNavBar/>
+      <TopNavBar setAuthComponent={setAuthComponent} />
+      <HomePage />
     </>
-  )
+  );
 }
 
-export default MainScreen
+export default MainScreen;
