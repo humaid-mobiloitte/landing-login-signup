@@ -3,17 +3,16 @@ const styles = {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      
     },
     card: {
       display: 'flex',
       flexDirection: 'row',
       width: '100%',
       maxWidth: '900px',
-      borderRadius: '12px',
+      borderRadius: '20px',
       overflow: 'hidden',
       boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.1)',
-      minHeight: '710px' 
+      // minHeight: '710px' 
     },
     imageContainer: {
       display: 'flex',
@@ -24,7 +23,6 @@ const styles = {
     image: {
       width: '100%',
       height: '100%',
-      objectFit: 'cover',
     },
     formContainer: {
       padding: '30px',

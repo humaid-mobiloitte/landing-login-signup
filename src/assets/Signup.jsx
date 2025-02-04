@@ -19,9 +19,7 @@ export default function Signup({ toggle }) {
     <Container maxWidth="md" sx={styles.container}>
       <Card sx={styles.card}>
         <Grid container>
-          {/* Left Side - Image */}
-          <ImageContent/>
-          {/* Right Side - Signup Form */}
+            {/* Left Side - Signup Form */}
           <Grid item xs={12} md={6} sx={styles.formContainer}>
             <CardContent>
               <Typography variant="h4" sx={styles.title}>Sign Up</Typography>
@@ -79,6 +77,8 @@ export default function Signup({ toggle }) {
               </Button>
             </CardContent>
           </Grid>
+          {/* Right Side - Image */}
+          <ImageContent/>
         </Grid>
       </Card>
     </Container>
