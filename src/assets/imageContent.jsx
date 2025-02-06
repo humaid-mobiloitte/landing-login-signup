@@ -1,13 +1,15 @@
-import {Grid} from '@mui/material';
+import { Grid } from '@mui/material';
 import styles from './styling/styles';
-export default function ImageContent(){
-    return(
-        <Grid item xs={12} md={6} sx={styles.imageContainer}>
-            <img
-              src="src/assets/images/homescreen_right_side_group_sm.svg"
-              alt="Signup"
-              style={styles.image}
-            />
-        </Grid>
-    )
+
+export default function ImageContent({ ImageSrc }) {
+  return (
+    <Grid sx={styles.imageContainer}>
+      <img
+        src={ImageSrc}
+        alt="image not found"
+        style={styles.image}
+      />
+      {console.log(ImageSrc)}
+    </Grid>
+  );
 }

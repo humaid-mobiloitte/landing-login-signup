@@ -159,7 +159,9 @@ export default function OTP({ setAuthComponent }) {
           </Grid>
 
           {/* Right Side - Image */}
-          <ImageContent />
+
+          <ImageContent ImageSrc={'src/assets/images/otp_first_image.svg'} />
+
         </Grid>
       </Card>
     </Container>

@@ -12,9 +12,9 @@ export default function OTPSuccess({ setAuthComponent }) {
         <Grid container>
           {/* Left Side - OTP Form */}
           <Grid item xs={12} md={6} sx={styles.formContainer}>
-            <CardContent style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+            <CardContent style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'1rem'}}>
               <Typography sx={styles.title}>Account created</Typography>
-              <Typography>Your account has been created successfully!</Typography>
+              <Typography sx={{textAlign:'center'}}>Your account has been created successfully!</Typography>
 
               <CheckCircleIcon sx={{width:'7rem',height:'auto'}}/>
 
@@ -46,7 +46,7 @@ export default function OTPSuccess({ setAuthComponent }) {
           </Grid>
 
           {/* Right Side - Image */}
-          <ImageContent />
+          <ImageContent ImageSrc={'src/assets/images/otp_success_image.svg'}/>
         </Grid>
       </Card>
     </Container>

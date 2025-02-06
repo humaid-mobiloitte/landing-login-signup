@@ -14,19 +14,27 @@ const styles = {
       boxShadow: '0px 5px 15px rgba(0, 0, 0, 0.1)',
       // minHeight: '710px' 
     },
+    // imageContainer: {
+    //   display: 'flex',
+    //   alignItems: 'center',
+    //   justifyContent: 'center',
+    //   background: '#f5f5f5',
+    // },
+    // image: {
+    //   width: '100%',
+    //   height: 'auto',
+    //   display:'block',
+    //   objectFit:'cover'
+    // },
     imageContainer: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      background: '#f5f5f5',
+      width: '50%', // Ensure the container takes up the full width of its parent
+      height:'100%'
+      // overflow: 'hidden' // Hide any overflow if the image is larger than the container
     },
     image: {
-      width: '100%',
-      height: '100%',
-    },
-    formContainer: {
-      padding: '2.5%',
-      backgroundColor: '#fff',
+      width: '100%', // Make the image fill the container's width
+      height: 'auto', // Maintain the image's aspect ratio
+      display: 'block', // Ensure the image behaves as a block element
     },
     title: {
       marginBottom: '20px',

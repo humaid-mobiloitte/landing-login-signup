@@ -40,8 +40,8 @@ export default function Login({ setAuthComponent }) {
 
   return (
     <Container sx={{ ...styles.container}}>
-      <Card sx={{ ...styles.card, flexDirection: { xs: 'column', md: 'row' }, borderRadius: '10px' }}>
-        <Grid container sx={{margin:-1}}>
+      <Card sx={{ ...styles.card, flexDirection: { xs: 'column', md: 'row' }, borderRadius: '20px' }}>
+        <Grid container >
           {/* Left Side - Login Form */}
           <Grid item xs={12} md={6} sx={{ ...styles.formContainer}}>
             <CardContent>
@@ -115,7 +115,7 @@ export default function Login({ setAuthComponent }) {
               <Button
                 variant="contained"
                 fullWidth
-                sx={{ ...styles.button, display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#ffffff', borderRadius: '10px', fontSize: '0.875rem', p: 1 }}
+                sx={{ ...styles.button, display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#ffffff', borderRadius: '10px', fontSize: '0.875rem', p: 1,color:'black' }}
               >
                 <img src="src/assets/images/icons8-google.svg" alt="google icon" style={{ width: '20px', marginRight: '8px' }} />
                 Sign in with Google
@@ -128,9 +128,9 @@ export default function Login({ setAuthComponent }) {
           </Grid>
 
           {/* Right Side - Image */}
-          <Grid item xs={12} md={6} sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }}>
-            <ImageContent />
-          </Grid>
+          
+            <ImageContent ImageSrc={'src/assets/images/login_first_image.svg'}/>
+
         </Grid>
       </Card>
     </Container>

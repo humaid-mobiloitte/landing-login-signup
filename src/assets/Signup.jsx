@@ -196,7 +196,9 @@ export default function Signup({ setAuthComponent }) {
           </Grid>
 
           {/* Right Side - Image */}
-          <ImageContent />
+          <ImageContent ImageSrc={'src/assets/images/signup_first_image.svg'}/>
+
+
         </Grid>
       </Card>
     </Container>
