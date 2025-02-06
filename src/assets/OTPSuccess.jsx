@@ -7,16 +7,16 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 export default function OTPSuccess({ setAuthComponent }) {
 
   return (
-    <Container maxWidth="md" sx={styles.container}>
+    <Container sx={styles.container}>
       <Card sx={styles.card}>
         <Grid container>
           {/* Left Side - OTP Form */}
-          <Grid item xs={12} md={6} sx={styles.formContainer}>
+          <Grid item xs={12} md={6} sx={styles.leftCard}>
             <CardContent style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'1rem'}}>
               <Typography sx={styles.title}>Account created</Typography>
-              <Typography sx={{textAlign:'center'}}>Your account has been created successfully!</Typography>
+              <Typography sx={{...styles.subtitle,textAlign:'center'}}>Your account has been created successfully!</Typography>
 
-              <CheckCircleIcon sx={{width:'7rem',height:'auto'}}/>
+              <CheckCircleIcon sx={{width:'7rem',height:'auto',color:'#1f9874'}}/>
 
 
               <Typography sx={styles.title}>Complete your profile</Typography>

@@ -1,4 +1,5 @@
-import { Typography, Button, Card, CardContent, TextField, Grid, Container, Box, FormControlLabel, Checkbox } from '@mui/material';
+import { Typography, Button, Card, CardContent, TextField, Grid, Container, Box, FormControlLabel, Checkbox,InputAdornment, IconButton } from '@mui/material';
+import { Email, Lock, Visibility, VisibilityOff } from "@mui/icons-material";
 import { useState } from 'react';
 import styles from './styling/styles';
 import ImageContent from './imageContent';
@@ -14,11 +15,16 @@ export default function Signup({ setAuthComponent }) {
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
   const [isChecked, setIsChecked] = useState(true);
   const [checkboxError, setCheckboxError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+const togglePasswordVisibility = () => setShowPassword(!showPassword);
+const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfirmPassword);
 
   // Email validation function
   const validateEmail = (value) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!value) return "Email is required.";
+    if (!value) return "Please enter your email.";
     if (value.length > 100) return "Email cannot exceed 100 characters.";
     if (!emailRegex.test(value)) return "Please enter a valid email address.";
     return "";
@@ -26,7 +32,7 @@ export default function Signup({ setAuthComponent }) {
 
   // Password validation function
   const validatePassword = (value) => {
-    if (!value) return "Password is required.";
+    if (!value) return "Please enter your password.";
     if (value.length < 6) return "Password must be at least 6 characters.";
     if (value.length > 20) return "Password cannot exceed 20 characters.";
     return "";
@@ -67,19 +73,19 @@ export default function Signup({ setAuthComponent }) {
   };
 
   return (
-    <Container maxWidth="md" sx={styles.container}>
+    <Container sx={styles.container}>
       <Card sx={styles.card}>
         <Grid container>
           {/* Left Side - Signup Form */}
-          <Grid item xs={12} md={6} sx={styles.formContainer}>
-            <CardContent>
-              <Typography sx={{ ...styles.title, fontSize: '2rem' }}>Create Your Account</Typography>
-              <Typography sx={{ mb: 2 }}>To get started, we need you to create an account with us. It's a quick and straightforward process that will only take a few minutes.</Typography>
+          <Grid item xs={12} md={6} sx={styles.leftCard}>
+            <CardContent >
+              <Typography sx={styles.title}>Create Your Account</Typography>
+              <Typography sx={styles.subtitle}>To get started, we need you to create an account with us. It's a quick and straightforward process that will only take a few minutes.</Typography>
 
               <Box sx={styles.inputGroup}>
                 <TextField
-                  fullWidth
-                  label="Please enter your email address"
+                  sx={styles.inputField}
+                  placeholder="Enter email address."
                   variant="outlined"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -87,14 +93,22 @@ export default function Signup({ setAuthComponent }) {
                   error={!!emailError}
                   helperText={emailError}
                   inputProps={{ maxLength: 100 }}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <Email />
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </Box>
 
+              {/* Password Input */}
               <Box sx={styles.inputGroup}>
                 <TextField
-                  fullWidth
-                  label="Please enter your password"
-                  type="password"
+                  sx={styles.inputField}
+                  placeholder="Enter password."
+                  type={showPassword ? "text" : "password"}
                   variant="outlined"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -102,20 +116,49 @@ export default function Signup({ setAuthComponent }) {
                   error={!!passwordError}
                   helperText={passwordError}
                   inputProps={{ maxLength: 20 }}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <Lock />
+                      </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton onClick={togglePasswordVisibility} edge="end">
+                          {showPassword ? <Visibility /> : <VisibilityOff />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </Box>
 
+              {/* Confirm Password Input */}
               <Box sx={styles.inputGroup}>
                 <TextField
-                  fullWidth
-                  label="Please re-enter your password"
-                  type="password"
+                  sx={styles.inputField}
+                  placeholder="Re-enter password"
+                  type={showConfirmPassword ? "text" : "password"}
                   variant="outlined"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   onBlur={() => setConfirmPasswordError(validateConfirmPassword(confirmPassword))}
                   error={!!confirmPasswordError}
                   helperText={confirmPasswordError}
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <Lock />
+                      </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton onClick={toggleConfirmPasswordVisibility} edge="end">
+                          {showConfirmPassword ? <Visibility /> : <VisibilityOff />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </Box>
 
@@ -131,11 +174,11 @@ export default function Signup({ setAuthComponent }) {
                     />
                   }
                   label={
-                    <>
+                    <Typography sx={styles.subtitle}>
                       I agree to your{' '}
                       <a href="#" target="_blank" rel="noopener noreferrer">Terms & Conditions</a> and{' '}
                       <a href="#" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and confirm that the country selection is correct.
-                    </>
+                    </Typography>
                   }
                   sx={{
                     display: 'flex',
@@ -153,26 +196,21 @@ export default function Signup({ setAuthComponent }) {
                 variant="contained"
                 color="primary"
                 style={{ backgroundColor: '#1f9874' }}
-                fullWidth
-                sx={styles.button}
+                sx={{...styles.inputField,...styles.button}}
                 onClick={handleSubmit}
               >
                 Create an account
               </Button>
-
-              <Typography sx={styles.signupText}>OR</Typography>
+        
+              <Typography sx={{...styles.subtitle,textAlign:'center',fontSize:'0.9rem'}}>OR</Typography>
 
               <Button
                 variant="contained"
                 color="black"
                 style={{ backgroundColor: '#ffffff' }}
-                fullWidth
                 sx={{
-                  ...styles.button,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  padding: '10px',
+                  ...styles.inputField,
+                  ...styles.button
                 }}
               >
                 <img
@@ -182,12 +220,13 @@ export default function Signup({ setAuthComponent }) {
                     width: '25px',
                     height: 'auto',
                     marginRight: '10px',
+                    fontFamily:'poppins'
                   }}
                 />
                 Sign in with Google
               </Button>
 
-              <Typography variant="body2" sx={styles.signupText}>
+              <Typography sx={{...styles.subtitle,textAlign:'center',fontSize:'0.9rem'}}>
                 Already have an account?{' '}
                 <a href="#" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} style={{ textDecoration: 'none', color: '#025043' }}>Login</a>
               </Typography>

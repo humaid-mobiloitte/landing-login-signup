@@ -21,13 +21,13 @@ export default function Login({ setAuthComponent }) {
     let newErrors = { email: '', password: '' };
 
     if (!email.trim()) {
-      newErrors.email = 'Email is required.';
+      newErrors.email = 'Please enter your email.';
     } else if (!validateEmail(email)) {
       newErrors.email = 'Enter a valid email (max 50 characters).';
     }
 
     if (!password.trim()) {
-      newErrors.password = 'Password cannot be empty.';
+      newErrors.password = 'Please enter your password.';
     }
 
     setErrors(newErrors);
@@ -39,19 +39,19 @@ export default function Login({ setAuthComponent }) {
   };
 
   return (
-    <Container sx={{ ...styles.container}}>
-      <Card sx={{ ...styles.card, flexDirection: { xs: 'column', md: 'row' }, borderRadius: '20px' }}>
+    <Container sx={styles.container}>
+      <Card sx={styles.card}>
         <Grid container >
           {/* Left Side - Login Form */}
-          <Grid item xs={12} md={6} sx={{ ...styles.formContainer}}>
+          <Grid item xs={12} md={6} sx={styles.leftCard}>
             <CardContent>
-              <Typography sx={{ ...styles.title, fontSize: '1.5rem' }}>Login now</Typography>
-              <Typography sx={{ mb: 2, fontSize: '0.875rem' }}>Welcome back! Please enter your details below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nam!</Typography>
+              <Typography sx={styles.title}>Login now</Typography>
+              <Typography sx={styles.subtitle}>Welcome back! Please enter your details below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nam!</Typography>
 
-              <Box sx={{ ...styles.inputGroup, mb: 1 }}>
+              <Box sx={styles.inputGroup}>
                 <TextField
-                  fullWidth
-                  label="Email"
+                  sx={styles.inputField}
+                  placeholder='Enter your email.'
                   variant="outlined"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -64,14 +64,13 @@ export default function Login({ setAuthComponent }) {
                       </InputAdornment>
                     ),
                   }}
-                  sx={{ fontSize: '0.875rem' }}
                 />
               </Box>
 
-              <Box sx={{ ...styles.inputGroup, mb: 1 }}>
+              <Box sx={styles.inputGroup}>
                 <TextField
-                  fullWidth
-                  label="Password"
+                  sx={styles.inputField}
+                  placeholder="Enter your password"
                   type={showPassword ? 'text' : 'password'}
                   variant="outlined"
                   value={password}
@@ -87,30 +86,30 @@ export default function Login({ setAuthComponent }) {
                     endAdornment: (
                       <InputAdornment position="end">
                         <IconButton onClick={() => setShowPassword(!showPassword)}>
-                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                          {showPassword ? <Visibility /> : <VisibilityOff />}
                         </IconButton>
                       </InputAdornment>
                     ),
                   }}
-                  sx={{ fontSize: '0.875rem' }}
                 />
               </Box>
 
-              <Box display="flex" justifyContent="space-between" alignItems="center" sx={{ mb: 1 }}>
-                <FormControlLabel control={<Checkbox />} label={<Typography sx={{ fontSize: '0.75rem' }}>Remember me</Typography>} />
-                <Typography sx={{ cursor: 'pointer', color: '#025043', fontWeight: 'bold', fontSize: '0.75rem' }}>Forgot password?</Typography>
+              <Box display="flex" justifyContent="space-between" alignItems="center" sx={styles.subtitle}>
+                <FormControlLabel control={<Checkbox />} label={<Typography>Remember me</Typography>} />
+                <Typography sx={{ cursor: 'pointer', color: '#025043'}}>Forgot password?</Typography>
               </Box>
-
+              
               <Button
                 variant="contained"
-                fullWidth
-                sx={{ ...styles.button, borderRadius: '10px', fontSize: '0.875rem', p: 1 }}
+                color="primary"
+                style={{ backgroundColor: '#1f9874' }}
+                sx={{...styles.inputField,...styles.button}}
                 onClick={handleLogin}
               >
                 Log in
               </Button>
 
-              <Typography sx={{ ...styles.signupText, mt: 2, fontSize: '0.875rem' }}>OR</Typography>
+              <Typography sx={{...styles.subtitle,textAlign:'center',fontSize:'0.9rem'}}>OR</Typography>
 
               <Button
                 variant="contained"
@@ -121,8 +120,9 @@ export default function Login({ setAuthComponent }) {
                 Sign in with Google
               </Button>
 
-              <Typography variant="body2" sx={{ ...styles.signupText, mt: 2, fontSize: '0.75rem' }}>
-                Don't have an account? <a href="#" onClick={() => setAuthComponent(<Signup setAuthComponent={setAuthComponent} />)} style={{ textDecoration: 'none', color: '#025043' }}>Sign up</a>
+              <Typography sx={{...styles.subtitle,textAlign:'center',fontSize:'0.9rem'}}>
+                Don't have an account? 
+                <a href="#" onClick={() => setAuthComponent(<Signup setAuthComponent={setAuthComponent} />)} style={{ textDecoration: 'none', color: '#025043' }}>Sign up</a>
               </Typography>
             </CardContent>
           </Grid>

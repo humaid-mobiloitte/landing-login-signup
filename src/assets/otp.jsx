@@ -66,14 +66,14 @@ export default function OTP({ setAuthComponent }) {
   };
 
   return (
-    <Container maxWidth="md" sx={styles.container}>
+    <Container sx={styles.container}>
       <Card sx={styles.card}>
         <Grid container>
           {/* Left Side - OTP Form */}
-          <Grid item xs={12} md={6} sx={styles.formContainer}>
+          <Grid item xs={12} md={6} sx={styles.leftCard}>
             <CardContent>
               <Typography sx={styles.title}>OTP Verification</Typography>
-              <Typography>Please enter the 6-digit verification code that was sent to your email. The code is valid for 3 minutes.</Typography>
+              <Typography sx={styles.subtitle}>Please enter the 6-digit verification code that was sent to your email. The code is valid for 3 minutes.</Typography>
 
               {/* OTP Input Fields */}
               <Box sx={styles.inputGroup} display="flex" gap={2} justifyContent="center">
@@ -88,21 +88,21 @@ export default function OTP({ setAuthComponent }) {
                       maxLength: 1,
                       style: { textAlign: 'center', fontSize: '20px' },
                     }}
-                    sx={{ width: '50px' }}
+                    sx={{ width: '3.5rem'}}
                     inputRef={(el) => (inputRefs.current[index] = el)}
                   />
                 ))}
               </Box>
 
               {/* Resend OTP Section */}
-              <Box display="flex" justifyContent="space-between" alignItems="center" sx={{ marginTop: '10px' }}>
+              <Box display="flex" justifyContent="space-between" alignItems="center" sx={styles.subtitle}>
                 <Typography
                   sx={{ cursor: 'pointer', color: '#025043', fontWeight: 'bold' }}
                   onClick={handleResend}
                 >
                   Resend
                 </Typography>
-                <Typography sx={{ color: 'lightgray', fontWeight: 'bold' }}>
+                <Typography sx={{ color: 'gray', fontWeight: 'bold' }}>
                   {formatTime(timer)}
                 </Typography>
               </Box>
@@ -112,13 +112,13 @@ export default function OTP({ setAuthComponent }) {
                   {error}
                 </Typography>
               )}
+              
 
               <Button
                 variant="contained"
                 color="primary"
                 style={{ backgroundColor: '#1f9874' }}
-                fullWidth
-                sx={styles.button}
+                sx={{...styles.inputField,...styles.button}}
                 onClick={handleSubmit}
               >
                 Verify OTP

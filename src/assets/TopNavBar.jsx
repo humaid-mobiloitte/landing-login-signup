@@ -40,7 +40,7 @@ function TopNavBar({ setAuthComponent }) {
               my: 1, backgroundColor: '#1f9874',
               minWidth: '100px', minHeight: '45px',
               width: { xs: '100px', md: '120px' },
-              height: { xs: '45px', md: '53px' }, borderRadius: '10px', fontFamily:'inter'
+              height: { xs: '45px', md: '53px' }, borderRadius: '10px', textTransform:'none', fontFamily:'inter'
             }}>Menu</Button>
             <Menu
               anchorEl={anchorElNav}
@@ -50,7 +50,7 @@ function TopNavBar({ setAuthComponent }) {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={{textTransform: 'none'}}>{page}</Typography>
+                  <Typography textAlign="center" sx={{textTransform: 'none',fontFamily:'inter'}}>{page}</Typography>
                 </MenuItem>
               ))}
               <MenuItem>
@@ -75,7 +75,7 @@ function TopNavBar({ setAuthComponent }) {
           {/* Normal Navigation for Desktop */}
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button key={page} sx={{ my: 2, color: 'black', display: 'block', fontFamily:'inter' }}>{page}</Button>
+              <Button key={page} sx={{ my: 2, color: 'black', display: 'block', fontFamily:'inter', textTransform:'none' }}>{page}</Button>
             ))}
           </Box>
 
