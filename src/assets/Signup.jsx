@@ -24,7 +24,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
   // Email validation function
   const validateEmail = (value) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!value) return "Please enter your email.";
+    if (!value) return "Please enter your email address.";
     if (value.length > 100) return "Email cannot exceed 100 characters.";
     if (!emailRegex.test(value)) return "Please enter a valid email address.";
     return "";
@@ -48,7 +48,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
   // Checkbox validation
   const validateCheckbox = () => {
     if (!isChecked) {
-      setCheckboxError("You must agree to the terms to proceed.");
+      setCheckboxError("Please agree to the terms to proceed.");
       return false;
     }
     setCheckboxError("");

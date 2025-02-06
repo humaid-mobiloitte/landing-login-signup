@@ -21,7 +21,7 @@ export default function Login({ setAuthComponent }) {
     let newErrors = { email: '', password: '' };
 
     if (!email.trim()) {
-      newErrors.email = 'Please enter your email.';
+      newErrors.email = 'Please enter your email address.';
     } else if (!validateEmail(email)) {
       newErrors.email = 'Enter a valid email (max 50 characters).';
     }

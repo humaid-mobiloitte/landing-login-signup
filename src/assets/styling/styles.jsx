@@ -89,7 +89,7 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     maxWidth: "90%", // 900px -> 90% of parent container
-    borderRadius: "1.25em", // 20px -> 1.25em
+    borderRadius: "1.4em", // 20px -> 1.25em
     overflow: "hidden",
     boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)",
   },
