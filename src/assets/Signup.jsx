@@ -171,6 +171,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                         setIsChecked(e.target.checked);
                         if (e.target.checked) setCheckboxError("");
                       }}
+                      sx={{paddingTop:0}}
                     />
                   }
                   label={

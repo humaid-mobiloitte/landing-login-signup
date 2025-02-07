@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography, TextField, InputAdornment, Button } from "@mui/material";
+import { Box, Typography, TextField, InputAdornment, Button, FormControl,Select, MenuItem } from "@mui/material";
 import { Work, LocationOn, Search } from "@mui/icons-material"; // Import icons
 import styles from "./styling/styles";
 
@@ -26,13 +26,13 @@ const HomePage = () => {
           justifyContent: { xs: "center", md: "flex-start" },
           alignItems: "center",
           px: { xs: 2, md: 'none' },
-          py: { xs: 4, md: 16 },
+          py: { xs: 4, md: 20 },
         }}
       >
         {/* Left Content */}
         <Box
           sx={{
-            maxWidth: 600,
+            maxWidth: 620,
             textAlign: { xs: "center", md: "left" },
             ml: { md: "13%" },
           }}
@@ -51,7 +51,7 @@ const HomePage = () => {
           </Typography>
           <Typography
             variant="subtitle1"
-            color="textSecondary"
+            color="textPrimary"
             sx={{ mb: 3, fontSize: { xs: "0.9rem", md: "1.2rem" }, fontFamily: "inter" }}
           >
             Upload Your CV And Let Our AI Find The Best Matches For You
@@ -71,9 +71,8 @@ const HomePage = () => {
               border: "1px solid rgba(0, 0, 0, 0.1)", // Optional border for more definition
             }}
           >
-            {/* Industry Field */}
-            <TextField
-              placeholder="Industry"
+            {/* Industry Dropdown */}
+            <FormControl
               variant="outlined"
               size="small"
               sx={{
@@ -81,22 +80,38 @@ const HomePage = () => {
                 width: { xs: "100%", sm: "auto" },
                 fontFamily: "inter",
                 "& .MuiOutlinedInput-root": {
-                  border: { md: "none" }, // Remove border for large screens
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "white",
+                  },
                 },
-                "& .MuiInputBase-input::placeholder": {
+                "& .MuiInputBase-input": {
                   fontSize: "0.8rem",
                   fontFamily: "inter",
                 },
               }}
-              InputProps={{
-                startAdornment: (
+            >
+              <Select
+                displayEmpty
+                defaultValue=""
+                startAdornment={
                   <InputAdornment position="start">
                     <Work />
                   </InputAdornment>
-                ),
-                disableUnderline: true,
-              }}
-            />
+                }
+                renderValue={(selected) =>
+                  selected ? selected : <span style={{ color: "rgba(0, 0, 0, 0.5)" }}>Industry</span>
+                }
+              >
+                <MenuItem value="" disabled>
+                  Industry
+                </MenuItem>
+                <MenuItem value="tech">Technology</MenuItem>
+                <MenuItem value="finance">Finance</MenuItem>
+                <MenuItem value="health">Healthcare</MenuItem>
+                <MenuItem value="education">Education</MenuItem>
+              </Select>
+            </FormControl>
+
 
             {/* Divider */}
             <Box
@@ -104,7 +119,7 @@ const HomePage = () => {
                 display: { xs: "none", md: "block" },
                 height: "1.5rem",
                 width: "1px",
-                backgroundColor: "#ccc", // Bifurcation line
+                backgroundColor: "#ccc",
               }}
             />
 
@@ -118,7 +133,9 @@ const HomePage = () => {
                 width: { xs: "100%", sm: "auto" },
                 fontFamily: "inter",
                 "& .MuiOutlinedInput-root": {
-                  border: { md: "none" },
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "white",
+                  },
                 },
                 "& .MuiInputBase-input::placeholder": {
                   fontSize: "0.8rem",
@@ -155,7 +172,9 @@ const HomePage = () => {
                 width: { xs: "100%", sm: "auto" },
                 fontFamily: "inter",
                 "& .MuiOutlinedInput-root": {
-                  border: { md: "none" },
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "white",
+                  },
                 },
                 "& .MuiInputBase-input::placeholder": {
                   fontSize: "0.8rem",
@@ -175,15 +194,16 @@ const HomePage = () => {
             <Button
               variant="contained"
               sx={{
-                ...styles.button,
                 backgroundColor: "#1f9874",
-                marginBottom: "none",
                 padding: "0.6rem 1.4rem",
+                textTransform:'none',
+                borderRadius:'10px'
               }}
             >
               Find Job
             </Button>
           </Box>
+
         </Box>
       </Box>
     </Box>

@@ -3,13 +3,13 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Login from "./assets/login";
 import { useState } from "react";
 import CancelIcon from '@mui/icons-material/Cancel';
-import { useMediaQuery } from '@mui/material';
+// import { useMediaQuery } from '@mui/material';
 
 function App() {
   const [authComponent, setAuthComponent] = useState(null);
   
   // Check if the screen is small (mobile)
-  const isSmallScreen = useMediaQuery('(max-width:600px)');
+  // const isSmallScreen = useMediaQuery('(max-width:600px)');
 
   return (
     <>

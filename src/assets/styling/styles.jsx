@@ -130,7 +130,7 @@ const styles = {
     padding: "0.8rem", // Keep rem for consistent spacing
   },
   title: {
-    marginBottom: "1.2rem", // Keep rem for consistent spacing
+    // marginBottom: "0.8rem", // Keep rem for consistent spacing
     marginTop: "0",
     fontWeight: 800,
     fontSize: "1.5rem", // Keep rem for consistent font size
@@ -138,7 +138,7 @@ const styles = {
     textTransform: "none",
   },
   subtitle: {
-    marginBottom: "1.2rem", // Keep rem for consistent spacing
+    marginBottom: "0.8rem", // Keep rem for consistent spacing
     fontSize: "0.8rem", // Keep rem for consistent font size
     fontFamily: "inter",
     width: "100%", // 20rem -> 100% of parent container
