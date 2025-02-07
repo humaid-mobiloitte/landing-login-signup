@@ -74,7 +74,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
 
   return (
     <Container sx={styles.container}>
-      <Card sx={styles.card}>
+      <Card sx={{ ...styles.card, maxWidth: '780px',maxHeight:'auto'}}>
         <Grid container>
           {/* Left Side - Signup Form */}
           <Grid item xs={12} md={6} sx={styles.leftCard}>
@@ -226,7 +226,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                 Sign in with Google
               </Button>
 
-              <Typography sx={{...styles.subtitle,textAlign:'center',fontSize:'0.9rem'}}>
+              <Typography sx={{...styles.subtitle,textAlign:'center',fontSize:'0.9rem',marginBottom:'none'}}>
                 Already have an account?{' '}
                 <a href="#" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} style={{ textDecoration: 'none', color: '#025043' }}>Login</a>
               </Typography>

@@ -1,5 +1,7 @@
 import React from "react";
 import { Box, Typography, TextField, InputAdornment, Button } from "@mui/material";
+import { Work, LocationOn, Search } from "@mui/icons-material"; // Import icons
+import styles from "./styling/styles";
 
 const HomePage = () => {
   return (
@@ -7,12 +9,13 @@ const HomePage = () => {
       sx={{
         flexGrow: 1,
         fontFamily: "inter",
-        backgroundImage: "url('src/assets/images/landing_page_background.svg')", // Replace with SVG path
+        backgroundImage:{md:"url('src/assets/images/landing_page_background.svg')",xs:'none'},
+        // backgroundImage: "url('src/assets/images/landing_page_background.svg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
-        backgroundAttachment: "fixed", // Fix background position
+        backgroundAttachment: "fixed",
         minHeight: "100vh",
-        mt: { xs: 8, md: 10 }, // Add margin-top to account for navbar
+        mt: { xs: 16, md: 10 },
       }}
     >
       {/* Hero Section */}
@@ -22,8 +25,8 @@ const HomePage = () => {
           flexDirection: { xs: "column", md: "row" },
           justifyContent: { xs: "center", md: "flex-start" },
           alignItems: "center",
-          px: { xs: 2, md: 8 },
-          py: { xs: 4, md: 10 },
+          px: { xs: 2, md: 'none' },
+          py: { xs: 4, md: 16 },
         }}
       >
         {/* Left Content */}
@@ -31,16 +34,25 @@ const HomePage = () => {
           sx={{
             maxWidth: 500,
             textAlign: { xs: "center", md: "left" },
-            ml: { md: "15%" }, // Push content to the center from the left
-            // mr: { md: "25%" }, // Adjust this value to position the right edge near the center
+            ml: { md: "15%" },
           }}
         >
-          <Typography variant="h3" sx={{ fontWeight: "900", mb: 2, fontSize: { xs: "2rem", md: "3rem" }, fontFamily:'inter' }}>
-            Find Your Dream Job <br />
-            with AI-Powered <br />
-            Recommendations
+          <Typography
+            variant="h3"
+            sx={{
+              fontWeight: "900",
+              mb: 2,
+              fontSize: { xs: "2rem", md: "3.4rem" },
+              fontFamily: "inter",
+            }}
+          >
+            Find Your Dream Job with AI-Powered Recommendations
           </Typography>
-          <Typography variant="body1" color="textSecondary" sx={{ mb: 3, fontSize: { xs: "0.9rem", md: "1rem" }, fontFamily:'inter' }}>
+          <Typography
+            variant="body1"
+            color="textSecondary"
+            sx={{ mb: 3, fontSize: { xs: "0.9rem", md: "1rem" }, fontFamily: "inter" }}
+          >
             Upload Your CV And Let Our AI Find The Best Matches For You
           </Typography>
 
@@ -57,14 +69,120 @@ const HomePage = () => {
               alignItems: "center",
             }}
           >
-            <TextField placeholder="Industry" variant="outlined" size="small" sx={{ flex: 1, width: { xs: "100%", sm: "auto" },fontFamily:'inter' }} />
-            <TextField placeholder="Location" variant="outlined" size="small" sx={{ flex: 1, width: { xs: "100%", sm: "auto"},fontFamily:'inter' }} />
-            <TextField placeholder="Search Job" variant="outlined" size="small" sx={{ flex: 2, width: { xs: "100%", sm: "auto" },fontFamily:'inter' }} />
-            <Button variant="contained" sx={{ backgroundColor: '#1f9874',fontFamily:'inter',textTransform:'None' }}>Find Job</Button>
+            {/* Industry Field */}
+            <TextField
+              placeholder="Industry"
+              variant="outlined"
+              size="small"
+              sx={{
+                flex: 1,
+                width: { xs: "100%", sm: "auto" },
+                fontFamily: "inter",
+                "& .MuiOutlinedInput-root": {
+                  border: { md: "none" }, // Remove border for large screens
+                },
+                "& .MuiInputBase-input::placeholder": {
+                  fontSize: "0.8rem",
+                  fontFamily: "inter",
+                },
+              }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Work />
+                  </InputAdornment>
+                ),
+                disableUnderline: true,
+              }}
+            />
+
+            {/* Divider */}
+            <Box
+              sx={{
+                display: { xs: "none", md: "block" },
+                height: "1.5rem",
+                width: "1px",
+                backgroundColor: "#ccc", // Bifurcation line
+              }}
+            />
+
+            {/* Location Field */}
+            <TextField
+              placeholder="Location"
+              variant="outlined"
+              size="small"
+              sx={{
+                flex: 1,
+                width: { xs: "100%", sm: "auto" },
+                fontFamily: "inter",
+                "& .MuiOutlinedInput-root": {
+                  border: { md: "none",color:'white' },
+                },
+                "& .MuiInputBase-input::placeholder": {
+                  fontSize: "0.8rem",
+                  fontFamily: "inter",
+                },
+              }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <LocationOn />
+                  </InputAdornment>
+                ),
+                disableUnderline: true,
+              }}
+            />
+
+            {/* Divider */}
+            <Box
+              sx={{
+                display: { xs: "none", md: "block" },
+                height: "1.5rem",
+                width: "1px",
+                backgroundColor: "#ccc",
+              }}
+            />
+
+            {/* Search Job Field */}
+            <TextField
+              placeholder="Search Job"
+              variant="outlined"
+              size="small"
+              sx={{
+                flex: 2,
+                width: { xs: "100%", sm: "auto" },
+                fontFamily: "inter",
+                "& .MuiOutlinedInput-root": {
+                  border: { md: "none" },
+                },
+                "& .MuiInputBase-input::placeholder": {
+                  fontSize: "0.8rem",
+                  fontFamily: "inter",
+                },
+              }}
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">
+                    <Search />
+                  </InputAdornment>
+                ),
+                disableUnderline: true,
+              }}
+            />
+
+            <Button
+              variant="contained"
+              sx={{
+                ...styles.button,
+                backgroundColor: "#1f9874",
+                marginBottom: "none",
+                padding: "0.6rem 1.4rem",
+              }}
+            >
+              Find Job
+            </Button>
           </Box>
         </Box>
-
-        {/* Right Side is intentionally left empty */}
       </Box>
     </Box>
   );

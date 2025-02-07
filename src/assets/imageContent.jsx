@@ -3,7 +3,7 @@ import styles from './styling/styles';
 
 export default function ImageContent({ ImageSrc }) {
   return (
-    <Grid sx={styles.imageContainer}>
+    <Grid sx={{...styles.imageContainer,display: { xs: 'none', md: 'block' }}}>
       <img
         src={ImageSrc}
         alt="image not found"

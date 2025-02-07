@@ -19,10 +19,10 @@ function App() {
         <div style={{
           position: 'fixed', top: 0, left: 0, width: '100%', height: '100vh',
           background: 'rgba(0, 0, 0, 0.5)', display: 'flex', alignItems: 'center',
-          justifyContent: 'center', zIndex: 2000, overflowY: 'auto'
+          justifyContent: 'center', zIndex: 2000
         }}>
           <div>
-            <div style={{display:'flex',justifyContent:'flex-end',margin:'0',padding:'0',color:'white'}}><CancelIcon onClick={() => setAuthComponent(null)}/></div>
+            <div style={{display:'flex',justifyContent:'flex-end',margin:'0',padding:'0',color:'white',cursor:'pointer'}}><CancelIcon onClick={() => setAuthComponent(null)}/></div>
             {authComponent}
           </div>
         </div>

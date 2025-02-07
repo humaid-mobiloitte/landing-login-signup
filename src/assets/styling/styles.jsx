@@ -68,6 +68,8 @@
 //   },
 // };
 
+import { AspectRatio } from "@mui/icons-material";
+
 // export default styles;
 ////////////////////////////////////////// DEEPSEEK AI ///////////////////////////
 const styles = {
@@ -88,9 +90,9 @@ const styles = {
   card: {
     display: "flex",
     flexDirection: "row",
-    maxWidth: "90%", // 900px -> 90% of parent container
+    // maxWidth: "90%", // 900px -> 90% of parent container
     borderRadius: "1.4em", // 20px -> 1.25em
-    overflow: "hidden",
+    // overflow: "hidden",
     boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)",
   },
   imageContainer: {
@@ -105,6 +107,7 @@ const styles = {
   image: {
     width: "100%", // Already responsive
     height: "100%", // Already responsive
+    // AspectRatio:'9:16',
     objectFit: "cover",
   },
   inputGroup: {
@@ -124,7 +127,7 @@ const styles = {
   leftCard: {
     width: "100%", // 25.93rem -> 100% of parent container
     // maxWidth: "25.93rem", // Set a max-width for larger screens
-    padding: "1.2rem", // Keep rem for consistent spacing
+    padding: "0.8rem", // Keep rem for consistent spacing
   },
   title: {
     marginBottom: "1.2rem", // Keep rem for consistent spacing
@@ -217,3 +220,5 @@ export default styles;
 // };
 
 // export default styles;
+
+
