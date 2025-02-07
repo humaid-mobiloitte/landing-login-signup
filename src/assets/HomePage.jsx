@@ -32,9 +32,9 @@ const HomePage = () => {
         {/* Left Content */}
         <Box
           sx={{
-            maxWidth: 500,
+            maxWidth: 600,
             textAlign: { xs: "center", md: "left" },
-            ml: { md: "15%" },
+            ml: { md: "13%" },
           }}
         >
           <Typography
@@ -44,14 +44,15 @@ const HomePage = () => {
               mb: 2,
               fontSize: { xs: "2rem", md: "3.4rem" },
               fontFamily: "inter",
+              lineHeight:'140%'
             }}
           >
             Find Your Dream Job with AI-Powered Recommendations
           </Typography>
           <Typography
-            variant="body1"
+            variant="subtitle1"
             color="textSecondary"
-            sx={{ mb: 3, fontSize: { xs: "0.9rem", md: "1rem" }, fontFamily: "inter" }}
+            sx={{ mb: 3, fontSize: { xs: "0.9rem", md: "1.2rem" }, fontFamily: "inter" }}
           >
             Upload Your CV And Let Our AI Find The Best Matches For You
           </Typography>
@@ -63,10 +64,11 @@ const HomePage = () => {
               flexDirection: { xs: "column", sm: "row" },
               gap: 1,
               backgroundColor: "#fff",
-              boxShadow: 2,
+              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Custom shadow
               borderRadius: 2,
               p: 1,
               alignItems: "center",
+              border: "1px solid rgba(0, 0, 0, 0.1)", // Optional border for more definition
             }}
           >
             {/* Industry Field */}
@@ -116,7 +118,7 @@ const HomePage = () => {
                 width: { xs: "100%", sm: "auto" },
                 fontFamily: "inter",
                 "& .MuiOutlinedInput-root": {
-                  border: { md: "none",color:'white' },
+                  border: { md: "none" },
                 },
                 "& .MuiInputBase-input::placeholder": {
                   fontSize: "0.8rem",

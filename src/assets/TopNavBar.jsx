@@ -108,7 +108,8 @@ function TopNavBar({ setAuthComponent }) {
           {/* Normal Navigation for Desktop */}
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button key={page} sx={{ my: 2, color: 'black', display: 'block', fontFamily: 'inter', textTransform: 'none' }}>
+              <Button key={page} sx={{ my: 2, color: 'black', display: 'block', fontFamily: 'inter', textTransform: 'none','&:hover': {
+          backgroundColor: 'transparent'},fontWeight:'300',fontSize:'0.9rem'}}>
                 {page}
               </Button>
             ))}
@@ -133,11 +134,11 @@ function TopNavBar({ setAuthComponent }) {
             <Button
               variant="outlined"
               onClick={() => setAuthComponent(<Signup setAuthComponent={setAuthComponent} />)}
-              sx={{ border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', color: 'black', textTransform: 'none', fontFamily: 'inter' }}
+              sx={{ border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', color: 'black', textTransform: 'none', fontFamily: 'inter',fontWeight:'300' }}
             >
               Sign Up
             </Button>
-            <Button variant="contained" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} sx={{ backgroundColor: '#1f9874', textTransform: 'none', fontFamily: 'inter' }}>
+            <Button variant="contained" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} sx={{ backgroundColor: '#1f9874', textTransform: 'none', fontFamily: 'inter',fontWeight:'300' }}>
               Login
             </Button>
           </Stack>
