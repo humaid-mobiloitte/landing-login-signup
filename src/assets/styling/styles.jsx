@@ -139,7 +139,7 @@ const styles = {
   },
   subtitle: {
     marginBottom: "0.8rem", // Keep rem for consistent spacing
-    fontSize: "0.8rem", // Keep rem for consistent font size
+    fontSize: "0.7rem", // Keep rem for consistent font size
     fontFamily: "inter",
     width: "100%", // 20rem -> 100% of parent container
     // maxWidth: "20rem", // Set a max-width for larger screens

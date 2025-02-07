@@ -177,8 +177,8 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                   label={
                     <Typography sx={styles.subtitle}>
                       I agree to your{' '}
-                      <a href="#" target="_blank" rel="noopener noreferrer">Terms & Conditions</a> and{' '}
-                      <a href="#" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and confirm that the country selection is correct.
+                      <a href="#">Terms & Conditions</a> and{' '}
+                      <a href="#">Privacy Policy</a>.
                     </Typography>
                   }
                   sx={{
@@ -236,7 +236,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
           </Grid>
 
           {/* Right Side - Image */}
-          <ImageContent ImageSrc={'src/assets/images/signup_first_image.svg'}/>
+          <ImageContent ImageSrc={'src/assets/images/signup_right_image.png'}/>
 
 
         </Grid>

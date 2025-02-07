@@ -129,7 +129,7 @@ export default function Login({ setAuthComponent }) {
 
           {/* Right Side - Image */}
           
-            <ImageContent ImageSrc={'src/assets/images/login_first_image.svg'}/>
+            <ImageContent ImageSrc={'src/assets/images/login_right_image.png'}/>
 
         </Grid>
       </Card>
