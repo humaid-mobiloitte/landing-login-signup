@@ -10,7 +10,7 @@ export default function ImageContent({ ImageSrc }) {
         alt="image not found"
         style={styles.image}
       />
-      {console.log(ImageSrc)}
+      {/* {console.log(ImageSrc)} */}
     </Grid>
   );
 }
