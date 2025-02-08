@@ -131,7 +131,7 @@ const styles = {
   leftCard: {
     width: "100%", // 25.93rem -> 100% of parent container
     // maxWidth: "25.93rem", // Set a max-width for larger screens
-    padding: "2% 2%", // Keep rem for consistent spacing
+    padding: "2% 2.6%", // Keep rem for consistent spacing
   },
   title: {
     // marginBottom: "0.8rem", // Keep rem for consistent spacing
