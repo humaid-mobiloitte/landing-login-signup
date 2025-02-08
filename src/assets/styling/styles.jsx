@@ -68,8 +68,6 @@
 //   },
 // };
 
-import { AspectRatio } from "@mui/icons-material";
-
 // export default styles;
 ////////////////////////////////////////// DEEPSEEK AI ///////////////////////////
 const styles = {
@@ -78,7 +76,7 @@ const styles = {
     fontSize: "0.875em", // 14px -> 0.875em
     borderRadius: "0.5em", // 8px -> 0.5em
     backgroundColor: "teal",
-    marginBottom: "1.2rem", // Keep rem for consistent spacing
+    // marginBottom: "1.2rem", // Keep rem for consistent spacing
     textTransform: "none",
     fontFamily: "inter",
   },
@@ -111,7 +109,8 @@ const styles = {
     objectFit: "cover",
   },
   inputGroup: {
-    marginBottom: "0.9375em", // 15px -> 0.9375em
+    // marginBottom: "0.9375em", // 15px -> 0.9375em
+    // marginBottom: "2em", // 15px -> 0.9375em
     fontSize: "0.8rem", // Keep rem for consistent font size
     fontFamily: "inter",
   },
@@ -121,104 +120,45 @@ const styles = {
     borderRadius: "0.625em", // 10px -> 0.625em
     "& .MuiOutlinedInput-root": {
       borderRadius: "0.625em", // 10px -> 0.625em
-      height: "3.25em", // 52px -> 3.25em
+      height: "3rem", // 52px -> 3.25em
+      marginTop:'0.6rem'
     },
   },
   leftCard: {
     width: "100%", // 25.93rem -> 100% of parent container
     // maxWidth: "25.93rem", // Set a max-width for larger screens
-    padding: "0.8rem", // Keep rem for consistent spacing
+    padding: "0.6rem", // Keep rem for consistent spacing
   },
   title: {
     // marginBottom: "0.8rem", // Keep rem for consistent spacing
-    marginTop: "0",
+    marginTop: "none",
     fontWeight: 800,
     fontSize: "1.5rem", // Keep rem for consistent font size
     fontFamily: "inter",
     textTransform: "none",
   },
   subtitle: {
-    marginBottom: "0.8rem", // Keep rem for consistent spacing
+    // marginBottom: "0.8rem", // Keep rem for consistent spacing
     fontSize: "0.7rem", // Keep rem for consistent font size
     fontFamily: "inter",
     width: "100%", // 20rem -> 100% of parent container
     // maxWidth: "20rem", // Set a max-width for larger screens
   },
+  // Added styles for aligning error messages properly
+  errorText: {
+    fontSize: "0.8rem", // Keep error message font size consistent
+    // color: "red", // Ensure visibility of error messages
+    marginLeft: "-0.8rem", // Align with existing elements from the left
+    // marginRight: "0.3rem", // Align with existing elements from the right
+    position:"absolute"
+  },
+  
+  // ===== ADDED BY CHATGPT: New styles for CardContent Flex Layout =====
+  cardContent: {
+    display: "flex", // Align elements in column
+    flexDirection: "column", // Stack elements vertically
+    gap: "1.25rem", // Uniform spacing between elements
+  },
 };
 
 export default styles;
-
-//////////////////////////////////////////// CHAT GPT CSS ////////////////////////////////////////////////
-// const styles = {
-//   button: {
-//     padding: "2%", // Adjusted for responsiveness
-//     fontSize: "1vw", // Relative font size
-//     borderRadius: "8px",
-//     backgroundColor: "teal",
-//     marginBottom: "2%",
-//     textTransform: "none",
-//     fontFamily: "inter",
-//   },
-//   container: {
-//     display: "flex",
-//     justifyContent: "center",
-//     alignItems: "center",
-//   },
-//   card: {
-//     display: "flex",
-//     flexDirection: "row",
-//     maxWidth: "90%", // Adjusted from fixed px to percentage for responsiveness
-//     borderRadius: "20px",
-//     overflow: "hidden",
-//     boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)",
-//   },
-//   imageContainer: {
-//     width: "50%", // Ensures it takes half the card width
-//     height: "100%",
-//     display: "flex",
-//     alignItems: "center",
-//     justifyContent: "center",
-//     backgroundSize: "cover",
-//     backgroundPosition: "center",
-//   },
-//   image: {
-//     width: "100%",
-//     height: "100%",
-//     objectFit: "cover",
-//   },
-//   inputGroup: {
-//     marginBottom: "2%", // Adjusted for responsiveness
-//     fontSize: "0.8vw", // Relative font size
-//     fontFamily: "inter",
-//   },
-//   inputField: {
-//     width: "80%", // Converted from rem to percentage
-//     borderRadius: "10px",
-//     "& .MuiOutlinedInput-root": {
-//       borderRadius: "10px",
-//       height: "3.5vw", // Responsive height
-//     },
-//   },
-//   leftCard: {
-//     width: "60%", // Adjusted for responsiveness
-//     padding: "5%",
-//   },
-//   title: {
-//     marginBottom: "2%",
-//     marginTop: "0",
-//     fontWeight: 800,
-//     fontSize: "1.5vw",
-//     fontFamily: "inter",
-//     textTransform: "none",
-//   },
-//   subtitle: {
-//     marginBottom: "2%",
-//     fontSize: "1vw",
-//     fontFamily: "inter",
-//     width: "80%",
-//   },
-// };
-
-// export default styles;
-
-

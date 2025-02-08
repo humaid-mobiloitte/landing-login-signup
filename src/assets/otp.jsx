@@ -71,7 +71,7 @@ export default function OTP({ setAuthComponent }) {
         <Grid container>
           {/* Left Side - OTP Form */}
           <Grid item xs={12} md={6} sx={styles.leftCard}>
-            <CardContent>
+            <CardContent sx={styles.cardContent}>
               <Typography sx={styles.title}>OTP Verification</Typography>
               <Typography sx={styles.subtitle}>Please enter the 6-digit verification code that was sent to your email. The code is valid for 3 minutes.</Typography>
 

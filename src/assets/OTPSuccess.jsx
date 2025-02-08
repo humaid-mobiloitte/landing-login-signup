@@ -12,7 +12,7 @@ export default function OTPSuccess({ setAuthComponent }) {
         <Grid container>
           {/* Left Side - OTP Form */}
           <Grid item xs={12} md={6} sx={styles.leftCard}>
-            <CardContent style={{display:'flex',flexDirection:'column',alignItems:'center',gap:'1rem'}}>
+            <CardContent sx={{...styles.cardContent,alignItems:'center'}}>
               <Typography sx={styles.title}>Account created</Typography>
               <Typography sx={{...styles.subtitle,textAlign:'center'}}>Your account has been created successfully!</Typography>
 

@@ -44,7 +44,7 @@ export default function Login({ setAuthComponent }) {
         <Grid container >
           {/* Left Side - Login Form */}
           <Grid item xs={12} md={6} sx={styles.leftCard}>
-            <CardContent>
+            <CardContent sx={styles.cardContent}>
               <Typography sx={styles.title}>Login now</Typography>
               <Typography sx={styles.subtitle}>Welcome back! Please enter your details below. Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nam!</Typography>
 
@@ -56,7 +56,8 @@ export default function Login({ setAuthComponent }) {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   error={!!errors.email}
-                  helperText={errors.email}
+                  // helperText={emailError && <Typography sx={styles.errorText}>{emailError}</Typography>}
+                  helperText={errors.email && <Typography sx={styles.errorText}>{errors.email}</Typography>}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -76,7 +77,8 @@ export default function Login({ setAuthComponent }) {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   error={!!errors.password}
-                  helperText={errors.password}
+                  // helperText={emailError && <Typography sx={styles.errorText}>{emailError}</Typography>}
+                  helperText={errors.password && <Typography sx={styles.errorText}>{errors.password}</Typography>}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">

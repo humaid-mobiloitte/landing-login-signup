@@ -74,15 +74,22 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
 
   return (
     <Container sx={styles.container}>
-      <Card sx={{ ...styles.card, maxWidth: '780px',maxHeight:'auto'}}>
+      <Card sx={{ ...styles.card, maxWidth: '840px',maxHeight:'auto'}}>
         <Grid container>
           {/* Left Side - Signup Form */}
-          <Grid item xs={12} md={6} sx={styles.leftCard}>
-            <CardContent >
-              <Typography sx={styles.title}>Create Your Account</Typography>
-              <Typography sx={styles.subtitle}>To get started, we need you to create an account with us. It's a quick and straightforward process that will only take a few minutes.</Typography>
+          <Grid item xs={12} md={6} sx={{ ...styles.leftCard, position: "relative" }}>
+            <CardContent sx={styles.cardContent}>
 
-              <Box sx={styles.inputGroup}>
+              {/* TITLE */}
+              <Typography sx={styles.title}>Create Your Account</Typography>
+
+              {/* SUBTITLE */}
+              <Typography sx={styles.subtitle}>
+                To get started, please create an account with us. It's a quick and straightforward process that will only take a few minutes.
+              </Typography>
+
+              {/* EMAIL INPUT FIELD */}
+              <Box sx={{ position: "relative" }}>
                 <TextField
                   sx={styles.inputField}
                   placeholder="Enter email address."
@@ -91,8 +98,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                   onChange={(e) => setEmail(e.target.value)}
                   onBlur={() => setEmailError(validateEmail(email))}
                   error={!!emailError}
-                  helperText={emailError}
-                  inputProps={{ maxLength: 100 }}
+                  helperText={emailError && <Typography sx={styles.errorText}>{emailError}</Typography>}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -103,8 +109,8 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                 />
               </Box>
 
-              {/* Password Input */}
-              <Box sx={styles.inputGroup}>
+              {/* PASSWORD INPUT FIELD */}
+              <Box sx={{position:'relative'}}>
                 <TextField
                   sx={styles.inputField}
                   placeholder="Enter password."
@@ -114,8 +120,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                   onChange={(e) => setPassword(e.target.value)}
                   onBlur={() => setPasswordError(validatePassword(password))}
                   error={!!passwordError}
-                  helperText={passwordError}
-                  inputProps={{ maxLength: 20 }}
+                  helperText={passwordError && <Typography sx={styles.errorText}>{passwordError}</Typography>}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -133,8 +138,8 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                 />
               </Box>
 
-              {/* Confirm Password Input */}
-              <Box sx={styles.inputGroup}>
+              {/* RE-ENTER PASSWORD INPUT FIELD */}
+              <Box sx={{position:'relative'}}>
                 <TextField
                   sx={styles.inputField}
                   placeholder="Re-enter password"
@@ -144,7 +149,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   onBlur={() => setConfirmPasswordError(validateConfirmPassword(confirmPassword))}
                   error={!!confirmPasswordError}
-                  helperText={confirmPasswordError}
+                  helperText={confirmPasswordError && <Typography sx={styles.errorText}>{confirmPasswordError}</Typography>}
                   InputProps={{
                     startAdornment: (
                       <InputAdornment position="start">
@@ -162,77 +167,52 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                 />
               </Box>
 
-              <Box sx={styles.inputGroup}>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      checked={isChecked}
-                      onChange={(e) => {
-                        setIsChecked(e.target.checked);
-                        if (e.target.checked) setCheckboxError("");
-                      }}
-                      sx={{paddingTop:0}}
-                    />
-                  }
-                  label={
-                    <Typography sx={styles.subtitle}>
-                      I agree to your{' '}
-                      <a href="#">Terms & Conditions</a> and{' '}
-                      <a href="#">Privacy Policy</a>.
-                    </Typography>
-                  }
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'flex-start', // Aligns the checkbox to the top
-                  }}
-                />
-                {checkboxError && (
-                  <Typography color="error" sx={{ fontSize: '0.8rem', marginTop: '-10px' }}>
-                    {checkboxError}
+              {/* CHECKBOX */}
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={isChecked}
+                    onChange={(e) => {
+                      setIsChecked(e.target.checked);
+                      if (e.target.checked) setCheckboxError("");
+                    }}
+                  />
+                }
+                label={
+                  <Typography sx={styles.subtitle}>
+                    I agree to your{' '}
+                    <a href="#">Terms & Conditions</a> and{' '}
+                    <a href="#">Privacy Policy</a>.
                   </Typography>
-                )}
-              </Box>
+                }
+              />
 
-              <Button
-                variant="contained"
-                color="primary"
-                style={{ backgroundColor: '#1f9874' }}
-                sx={{...styles.inputField,...styles.button}}
-                onClick={handleSubmit}
-              >
+              {/* CREATE ACCOUNT BUTTON */}
+              <Button variant="contained" sx={{ ...styles.inputField, ...styles.button }} onClick={handleSubmit}>
                 Create an account
               </Button>
-        
-              <Typography sx={{...styles.subtitle,textAlign:'center',fontSize:'0.9rem'}}>OR</Typography>
 
+              {/* OR -> SIGNUP K LYE */}
+              <Typography sx={{ textAlign: 'center', fontSize: '0.9rem' }}>OR</Typography>
+
+              {/* GOOGLE SIGN IN BUTTON */}
               <Button
                 variant="contained"
-                color="black"
-                style={{ backgroundColor: '#ffffff' }}
-                sx={{
-                  ...styles.inputField,
-                  ...styles.button
-                }}
+                sx={{ ...styles.inputField, ...styles.button, backgroundColor: '#ffffff', color:'black' }}
               >
-                <img
-                  src="src/assets/images/icons8-google.svg"
-                  alt="google icon"
-                  style={{
-                    width: '25px',
-                    height: 'auto',
-                    marginRight: '10px',
-                    fontFamily:'poppins'
-                  }}
-                />
+                <img src="src/assets/images/icons8-google.svg" alt="google icon" style={{ width: '25px', height: 'auto', marginRight: '10px' }} />
                 Sign in with Google
               </Button>
 
-              <Typography sx={{...styles.subtitle,textAlign:'center',fontSize:'0.9rem',marginBottom:'none'}}>
+              {/* SIGNUP KRWANE K LIYE */}
+              <Typography sx={{ textAlign: 'center', fontSize: '0.9rem' }}>
                 Already have an account?{' '}
-                <a href="#" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} style={{ textDecoration: 'none', color: '#025043' }}>Login</a>
+                <a href="#" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} style={{ textDecoration: 'none', color: '#025043' }}>
+                  Login
+                </a>
               </Typography>
-
             </CardContent>
+
           </Grid>
 
           {/* Right Side - Image */}
