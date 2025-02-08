@@ -14,8 +14,9 @@ const HomePage = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
-        minHeight: "100vh",
+        minHeight: "91vh", //scrolling rok di
         mt: { xs: 16, md: 10 },
+        overflow:'hidden'
       }}
     >
       {/* Hero Section */}

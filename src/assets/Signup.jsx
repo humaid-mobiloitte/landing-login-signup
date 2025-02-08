@@ -74,17 +74,17 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
 
   return (
     <Container sx={styles.container}>
-      <Card sx={{ ...styles.card, maxWidth: '840px',maxHeight:'auto'}}>
+      <Card sx={{ ...styles.card, maxWidth: '840px',maxHeight:'86vh'}}>
         <Grid container>
           {/* Left Side - Signup Form */}
           <Grid item xs={12} md={6} sx={{ ...styles.leftCard, position: "relative" }}>
             <CardContent sx={styles.cardContent}>
 
               {/* TITLE */}
-              <Typography sx={styles.title}>Create Your Account</Typography>
+              <Typography sx={{...styles.title,p:0}}>Create Your Account</Typography>
 
               {/* SUBTITLE */}
-              <Typography sx={styles.subtitle}>
+              <Typography sx={{...styles.subtitle,p:0}}>
                 To get started, please create an account with us. It's a quick and straightforward process that will only take a few minutes.
               </Typography>
 
@@ -92,7 +92,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
               <Box sx={{ position: "relative" }}>
                 <TextField
                   sx={styles.inputField}
-                  placeholder="Enter email address."
+                  placeholder="Enter email address"
                   variant="outlined"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -112,8 +112,8 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
               {/* PASSWORD INPUT FIELD */}
               <Box sx={{position:'relative'}}>
                 <TextField
-                  sx={styles.inputField}
-                  placeholder="Enter password."
+                  sx={{...styles.inputField,margin:"3% 0"}}
+                  placeholder="Enter password"
                   type={showPassword ? "text" : "password"}
                   variant="outlined"
                   value={password}
@@ -186,9 +186,15 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                   </Typography>
                 }
               />
-
+              {/* CHECK BOX KI ERROR HANDLING */}
+              {/* helperText={confirmPasswordError && <Typography sx={styles.errorText}>{confirmPasswordError} */}
+               {/* {checkboxError && (
+                  <Typography color="error" sx={{ fontSize: '0.7rem', marginTop: '-10px' }}>
+                    {checkboxError}
+                  </Typography>
+               )} */}
               {/* CREATE ACCOUNT BUTTON */}
-              <Button variant="contained" sx={{ ...styles.inputField, ...styles.button }} onClick={handleSubmit}>
+              <Button variant="contained" sx={{ ...styles.inputField, ...styles.button, backgroundColor:'#1f9874' }} onClick={handleSubmit}>
                 Create an account
               </Button>
 

@@ -87,7 +87,7 @@ const styles = {
   },
   card: {
     display: "flex",
-    flexDirection: "row",
+    // flexDirection: "row",
     // maxWidth: "90%", // 900px -> 90% of parent container
     borderRadius: "1.4em", // 20px -> 1.25em
     // overflow: "hidden",
@@ -121,17 +121,22 @@ const styles = {
     "& .MuiOutlinedInput-root": {
       borderRadius: "0.625em", // 10px -> 0.625em
       height: "3rem", // 52px -> 3.25em
-      marginTop:'0.6rem'
+      // marginTop:'inherit'
     },
+    "& input::placeholder": {
+        fontFamily: "Inter, sans-serif",
+        fontSize: "0.85rem", // Adjust as needed
+      },
   },
   leftCard: {
     width: "100%", // 25.93rem -> 100% of parent container
     // maxWidth: "25.93rem", // Set a max-width for larger screens
-    padding: "0.6rem", // Keep rem for consistent spacing
+    padding: "2% 2%", // Keep rem for consistent spacing
   },
   title: {
     // marginBottom: "0.8rem", // Keep rem for consistent spacing
-    marginTop: "none",
+    margin: "0 0",
+    padding:'0 0',
     fontWeight: 800,
     fontSize: "1.5rem", // Keep rem for consistent font size
     fontFamily: "inter",
@@ -146,10 +151,11 @@ const styles = {
   },
   // Added styles for aligning error messages properly
   errorText: {
-    fontSize: "0.8rem", // Keep error message font size consistent
+    fontSize: "0.7rem", // Keep error message font size consistent
     // color: "red", // Ensure visibility of error messages
     marginLeft: "-0.8rem", // Align with existing elements from the left
     // marginRight: "0.3rem", // Align with existing elements from the right
+    marginTop:'0.2rem',
     position:"absolute"
   },
   
@@ -157,7 +163,7 @@ const styles = {
   cardContent: {
     display: "flex", // Align elements in column
     flexDirection: "column", // Stack elements vertically
-    gap: "1.25rem", // Uniform spacing between elements
+    gap: "1rem", // Uniform spacing between elements
   },
 };
 

@@ -40,7 +40,7 @@ export default function Login({ setAuthComponent }) {
 
   return (
     <Container sx={styles.container}>
-      <Card sx={{ ...styles.card, maxWidth: '780px',maxHeight:'auto'}}>
+      <Card sx={{ ...styles.card, maxWidth: '900px',maxHeight:'auto'}}>
         <Grid container >
           {/* Left Side - Login Form */}
           <Grid item xs={12} md={6} sx={styles.leftCard}>
@@ -51,7 +51,7 @@ export default function Login({ setAuthComponent }) {
               <Box sx={styles.inputGroup}>
                 <TextField
                   sx={styles.inputField}
-                  placeholder='Enter your email.'
+                  placeholder='Enter your email'
                   variant="outlined"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -70,7 +70,7 @@ export default function Login({ setAuthComponent }) {
 
               <Box sx={styles.inputGroup}>
                 <TextField
-                  sx={styles.inputField}
+                  sx={{...styles.inputField,marginTop:"3%"}}
                   placeholder="Enter your password"
                   type={showPassword ? 'text' : 'password'}
                   variant="outlined"
@@ -123,7 +123,7 @@ export default function Login({ setAuthComponent }) {
               </Button>
 
               <Typography sx={{...styles.subtitle,textAlign:'center',fontSize:'0.9rem'}}>
-                Don't have an account? 
+                Don't have an account?{' '} 
                 <a href="#" onClick={() => setAuthComponent(<Signup setAuthComponent={setAuthComponent} />)} style={{ textDecoration: 'none', color: '#025043' }}>Sign up</a>
               </Typography>
             </CardContent>
