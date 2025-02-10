@@ -5,6 +5,7 @@ import styles from './styling/styles';
 import ImageContent from './imageContent';
 import Signup from './Signup';
 import OTP from './otp';
+import TextContent from './TextContent';
 
 export default function Login({ setAuthComponent }) {
   const [email, setEmail] = useState('');
@@ -54,7 +55,7 @@ export default function Login({ setAuthComponent }) {
 
     // Proceed to OTP if no errors
     if (!newErrors.email && !newErrors.password) {
-      console.log('Logging in with:', { email, password });
+      // console.log('Logging in with:', { email, password });
       setAuthComponent(<OTP setAuthComponent={setAuthComponent} />);
     }
   };
@@ -66,16 +67,16 @@ export default function Login({ setAuthComponent }) {
           {/* Left Side - Login Form */}
           <Grid item xs={12} md={6} sx={styles.leftCard}>
             <CardContent sx={styles.cardContent}>
-              <Typography sx={styles.title}>Login now</Typography>
+              <Typography sx={styles.title}>{TextContent.title.login}</Typography>
               <Typography sx={{ ...styles.subtitle, mt: -0.4, mb: 1 }}>
-                Welcome back! Please enter your details below. Lorem ipsum dolor sit amet consectetur.
+                {TextContent.subtitle.login}
               </Typography>
 
               {/* EMAIL INPUT FIELD */}
               <Box sx={styles.inputGroup}>
                 <TextField
                   sx={styles.inputField}
-                  placeholder='Enter your email'
+                  placeholder={TextContent.placeholders.email}
                   variant='outlined'
                   value={email}
                   onChange={(e) => {
@@ -99,7 +100,7 @@ export default function Login({ setAuthComponent }) {
               <Box sx={styles.inputGroup}>
                 <TextField
                   sx={{ ...styles.inputField, marginTop: '3%' }}
-                  placeholder='Enter your password'
+                  placeholder={TextContent.placeholders.password}
                   type={showPassword ? 'text' : 'password'}
                   variant='outlined'
                   value={password}
@@ -128,8 +129,8 @@ export default function Login({ setAuthComponent }) {
               </Box>
 
               <Box display='flex' justifyContent='space-between' alignItems='center' sx={styles.subtitle}>
-                <FormControlLabel control={<Checkbox />} label={<Typography>Remember me</Typography>} />
-                <Typography sx={{ cursor: 'pointer', color: '#025043'}}>Forgot password?</Typography>
+                <FormControlLabel control={<Checkbox />} label={<Typography>{TextContent.labels.rememberMe}</Typography>} />
+                <Typography sx={{ cursor: 'pointer', color: '#025043'}}>{TextContent.labels.forgotPassword}</Typography>
               </Box>
 
               {/* LOGIN BUTTON */}
@@ -140,10 +141,10 @@ export default function Login({ setAuthComponent }) {
                 sx={{ ...styles.inputField, ...styles.button }}
                 onClick={handleLogin}
               >
-                Log in
+                {TextContent.buttons.login}
               </Button>
 
-              <Typography sx={{ ...styles.subtitle, textAlign: 'center', fontSize: '0.9rem' }}>OR</Typography>
+              <Typography sx={{ ...styles.subtitle, textAlign: 'center', fontSize: '0.9rem' }}>{TextContent.misc.orText}</Typography>
 
               {/* GOOGLE SIGN-IN BUTTON */}
               <Button
@@ -166,17 +167,17 @@ export default function Login({ setAuthComponent }) {
                   alt='google icon'
                   style={{ width: '20px', marginRight: '8px' }}
                 />
-                Sign in with Google
+                {TextContent.buttons.googleSignIn}
               </Button>
 
               <Typography sx={{ ...styles.subtitle, textAlign: 'center', fontSize: '0.9rem' }}>
-                Don't have an account?{' '}
+                {TextContent.links.dontHaveAccount}{' '}
                 <a
                   href='#'
                   onClick={() => setAuthComponent(<Signup setAuthComponent={setAuthComponent} />)}
                   style={{ textDecoration: 'none', color: '#025043' }}
                 >
-                  Sign up
+                  {TextContent.links.signUp}
                 </a>
               </Typography>
             </CardContent>

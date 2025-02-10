@@ -5,6 +5,7 @@ import styles from './styling/styles';
 import ImageContent from './imageContent';
 import Login from './login';
 import OTP from './otp';
+import TextContent from './TextContent';
 
 export default function Signup({ setAuthComponent }) {
   const [email, setEmail] = useState('');
@@ -81,18 +82,18 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
             <CardContent sx={styles.cardContent}>
 
               {/* TITLE */}
-              <Typography sx={{...styles.title,p:0}}>Create Your Account</Typography>
+              <Typography sx={{...styles.title,p:0}}>{TextContent.title.signup}</Typography>
 
               {/* SUBTITLE */}
               <Typography sx={{...styles.subtitle,p:0,mt:-0.5,mb:0.8}}>
-                To get started, please create an account with us. It's a quick and straightforward process that will only take a few minutes.
+                {TextContent.subtitle.signup}
               </Typography>
 
               {/* EMAIL INPUT FIELD */}
               <Box sx={{ position: "relative" }}>
                 <TextField
                   sx={styles.inputField}
-                  placeholder="Enter email address"
+                  placeholder={TextContent.placeholders.email}
                   variant="outlined"
                   value={email}
                   // TYPIG START HOTE HI ERROR MESSAGE GAYB HOJAYE
@@ -119,7 +120,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
               <Box sx={{position:'relative'}}>
                 <TextField
                   sx={{...styles.inputField,margin:"3% 0"}}
-                  placeholder="Enter password"
+                  placeholder={TextContent.placeholders.password}
                   type={showPassword ? "text" : "password"}
                   variant="outlined"
                   value={password}
@@ -153,7 +154,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
               <Box sx={{position:'relative'}}>
                 <TextField
                   sx={styles.inputField}
-                  placeholder="Re-enter password"
+                  placeholder={TextContent.placeholders.reenterPassword}
                   type={showConfirmPassword ? "text" : "password"}
                   variant="outlined"
                   value={confirmPassword}
@@ -194,11 +195,10 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                     }}
                   />
                 }
+                // YHA MASLA HO SKTA HAI
                 label={
                   <Typography sx={styles.subtitle}>
-                    I agree to your{' '}
-                    <a href="#">Terms & Conditions</a> and{' '}
-                    <a href="#">Privacy Policy</a>.
+                    {TextContent.labels.termsAndConditions}
                   </Typography>
                 }
               />
@@ -211,11 +211,11 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                )}
               {/* CREATE ACCOUNT BUTTON */}
               <Button variant="contained" sx={{ ...styles.inputField, ...styles.button, backgroundColor:'#1f9874' }} onClick={handleSubmit}>
-                Create an account
+                {TextContent.buttons.createAccount}
               </Button>
 
               {/* OR -> SIGNUP K LYE */}
-              <Typography sx={{ textAlign: 'center', fontSize: '0.9rem' }}>OR</Typography>
+              <Typography sx={{ textAlign: 'center', fontSize: '0.9rem' }}>{TextContent.misc.orText}</Typography>
 
               {/* GOOGLE SIGN IN BUTTON */}
               <Button
@@ -223,14 +223,14 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                 sx={{ ...styles.inputField, ...styles.button, backgroundColor: '#ffffff', color:'black' }}
               >
                 <img src="src/assets/images/icons8-google.svg" alt="google icon" style={{ width: '25px', height: 'auto', marginRight: '10px' }} />
-                Sign in with Google
+                {TextContent.buttons.googleSignIn}
               </Button>
 
               {/* SIGNUP KRWANE K LIYE */}
               <Typography sx={{ textAlign: 'center', fontSize: '0.9rem', mt:0.5}}>
-                Already have an account?{' '}
+                {TextContent.links.alreadyHaveAccount}{' '}
                 <a href="#" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} style={{ textDecoration: 'none', color: '#025043' }}>
-                  Login
+                  {TextContent.buttons.login}
                 </a>
               </Typography>
             </CardContent>

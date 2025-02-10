@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import styles from './styling/styles';
 import ImageContent from './imageContent';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-
+import TextContent from './TextContent';
 export default function OTPSuccess({ setAuthComponent }) {
 
   return (
@@ -13,13 +13,13 @@ export default function OTPSuccess({ setAuthComponent }) {
           {/* Left Side - OTP Form */}
           <Grid item xs={12} md={6} sx={styles.leftCard}>
             <CardContent sx={{...styles.cardContent,alignItems:'center'}}>
-              <Typography sx={styles.title}>Account created</Typography>
-              <Typography sx={{...styles.subtitle,textAlign:'center'}}>Your account has been created successfully!</Typography>
+              <Typography sx={styles.title}>{TextContent.title.accountCreated}</Typography>
+              <Typography sx={{...styles.subtitle,textAlign:'center'}}>{TextContent.subtitle.accountCreated}</Typography>
 
               <CheckCircleIcon sx={{width:'7rem',height:'auto',color:'#1f9874'}}/>
 
 
-              <Typography sx={styles.title}>Complete your profile</Typography>
+              <Typography sx={styles.title}>{TextContent.title.accountCreated_T2}</Typography>
 
               <Button
                 variant="contained"
@@ -28,7 +28,7 @@ export default function OTPSuccess({ setAuthComponent }) {
                 fullWidth
                 sx={styles.button}
               >
-                Upload your CV/Resume
+                {TextContent.buttons.uploadResume}
               </Button>
 
               <Button
@@ -38,7 +38,7 @@ export default function OTPSuccess({ setAuthComponent }) {
                 fullWidth
                 sx={styles.button}
               >
-                Create your CV/Resume
+                {TextContent.buttons.createResume}
               </Button>
 
               

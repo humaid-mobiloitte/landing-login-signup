@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react';
 import styles from './styling/styles';
 import ImageContent from './imageContent';
 import OTPSuccess from './OTPSuccess';
+import TextContent from './TextContent';
 
 export default function OTP({ setAuthComponent }) {
   const [otp, setOtp] = useState(Array(6).fill(''));
@@ -71,8 +72,8 @@ export default function OTP({ setAuthComponent }) {
           {/* Left Side - OTP Form */}
           <Grid item xs={12} md={6} sx={styles.leftCard}>
             <CardContent sx={styles.cardContent}>
-              <Typography sx={styles.title}>OTP Verification</Typography>
-              <Typography sx={styles.subtitle}>Please enter the 6-digit verification code that was sent to your email. The code is valid for 3 minutes.</Typography>
+              <Typography sx={styles.title}>{TextContent.title.otp}</Typography>
+              <Typography sx={styles.subtitle}>{TextContent.subtitle.otp}</Typography>
 
               {/* OTP Input Fields */}
               <Box sx={styles.inputGroup} display="flex" gap={2} justifyContent="center">
@@ -115,7 +116,7 @@ export default function OTP({ setAuthComponent }) {
                   sx={{ cursor: 'pointer', color: '#025043', fontWeight: 'bold' }}
                   onClick={handleResend}
                 >
-                  Resend
+                  {TextContent.links.resendOtp}
                 </Typography>
                 <Typography sx={{ color: 'gray', fontWeight: 'bold' }}>
                   {formatTime(timer)}
@@ -135,7 +136,7 @@ export default function OTP({ setAuthComponent }) {
                 sx={{ ...styles.inputField, ...styles.button }}
                 onClick={handleSubmit}
               >
-                Verify OTP
+                {TextContent.buttons.verifyOtp}
               </Button>
 
               {/* OTP Resent Message */}
