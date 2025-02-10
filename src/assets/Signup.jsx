@@ -188,11 +188,11 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
               />
               {/* CHECK BOX KI ERROR HANDLING */}
               {/* helperText={confirmPasswordError && <Typography sx={styles.errorText}>{confirmPasswordError} */}
-               {/* {checkboxError && (
+               {checkboxError && (
                   <Typography color="error" sx={{ fontSize: '0.7rem', marginTop: '-10px' }}>
                     {checkboxError}
                   </Typography>
-               )} */}
+               )}
               {/* CREATE ACCOUNT BUTTON */}
               <Button variant="contained" sx={{ ...styles.inputField, ...styles.button, backgroundColor:'#1f9874' }} onClick={handleSubmit}>
                 Create an account

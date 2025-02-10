@@ -46,7 +46,6 @@ export default function OTP({ setAuthComponent }) {
       setError('Please enter the complete 6-digit OTP.');
     } else {
       setOtpVerified(true)
-    //   console.log(`Verified: ${otpVerified}`)
       setAuthComponent(<OTPSuccess setAuthComponent={setAuthComponent} />)
     }
   };
@@ -67,7 +66,7 @@ export default function OTP({ setAuthComponent }) {
 
   return (
     <Container sx={styles.container}>
-      <Card sx={{ ...styles.card, maxWidth: '780px',maxHeight:'auto'}}>
+      <Card sx={{ ...styles.card, maxWidth: '780px', maxHeight: 'auto' }}>
         <Grid container>
           {/* Left Side - OTP Form */}
           <Grid item xs={12} md={6} sx={styles.leftCard}>
@@ -86,9 +85,25 @@ export default function OTP({ setAuthComponent }) {
                     variant="outlined"
                     inputProps={{
                       maxLength: 1,
-                      style: { textAlign: 'center', fontSize: '20px' },
+                      style: { 
+                        textAlign: 'center', 
+                        fontSize: '20px', 
+                        padding: '0', // Remove default padding
+                      },
                     }}
-                    sx={{ width: '3.5rem'}}
+                    // Ensure the input box is square
+                    sx={{ 
+                      width: '3.5rem', 
+                      height: '2.6rem', 
+                      '& .MuiOutlinedInput-root': {
+                        height: '100%', // Ensure the root takes full height
+                        padding: '0', // Remove padding from the root
+                      },
+                      '& .MuiOutlinedInput-input': {
+                        padding: '0', // Remove padding from the input
+                        height: '100%', // Ensure the input takes full height
+                      },
+                    }}
                     inputRef={(el) => (inputRefs.current[index] = el)}
                   />
                 ))}
@@ -112,13 +127,12 @@ export default function OTP({ setAuthComponent }) {
                   {error}
                 </Typography>
               )}
-              
 
               <Button
                 variant="contained"
                 color="primary"
                 style={{ backgroundColor: '#1f9874' }}
-                sx={{...styles.inputField,...styles.button}}
+                sx={{ ...styles.inputField, ...styles.button }}
                 onClick={handleSubmit}
               >
                 Verify OTP
@@ -139,29 +153,11 @@ export default function OTP({ setAuthComponent }) {
                   {resendMessage}
                 </Box>
               )}
-
-              {/* Success Message on OTP Verification
-              {otpVerified && (
-                <Box
-                  sx={{
-                    backgroundColor: '#1f9874',
-                    color: 'white',
-                    padding: '10px',
-                    textAlign: 'center',
-                    borderRadius: '4px',
-                    marginTop: '10px',
-                  }}
-                >
-                  OTP Verified Successfully!
-                </Box>
-              )} */}
             </CardContent>
           </Grid>
 
           {/* Right Side - Image */}
-
           <ImageContent ImageSrc={'src/assets/images/otp_first_image.svg'} />
-
         </Grid>
       </Card>
     </Container>
