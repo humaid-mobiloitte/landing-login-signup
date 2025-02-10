@@ -5,7 +5,7 @@ import styles from './styling/styles';
 import ImageContent from './imageContent';
 import Signup from './Signup';
 import OTP from './otp';
-import TextContent from './TextContent';
+import { TextContent } from '../data/data';
 
 export default function Login({ setAuthComponent }) {
   const [email, setEmail] = useState('');

@@ -126,6 +126,34 @@ const TextContent = {
     orText: "OR",
     otpSuccessIconColor: "#1f9874",
   },
+
+  validation: {
+    email: {
+      required: "Please enter your email address.",
+      invalid: "Please enter a valid email address.",
+      maxLength: "Email cannot exceed 100 characters.",
+    },
+    password: {
+      required: "Please enter your password.",
+      minLength: "Password must be at least 6 characters.",
+      maxLength: "Password cannot exceed 20 characters.",
+    },
+    confirmPassword: {
+      required: "Please confirm your password.",
+      mismatch: "Passwords do not match.",
+    },
+    otp: {
+      required: "Please enter the complete 6-digit OTP.",
+    },
+    checkbox: {
+      required: "Please agree to the terms to proceed.",
+    },
+  },
+
+  messages: {
+    otpResent: "OTP resent successfully",
+  },
 };
+
 
 export default TextContent;
