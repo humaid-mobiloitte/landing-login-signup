@@ -26,7 +26,7 @@ function TopNavBar({ setAuthComponent }) {
   };
 
   return (
-    <AppBar sx={{ mt: '0.5%', padding: '0 1% 0 1%', background: 'white', boxShadow: 'none', fontFamily: 'inter' }}>
+    <AppBar sx={{ mt: '0.8%', padding: '0 1% 0 1%', background: 'white', boxShadow: 'none', fontFamily: 'inter' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* LOGO */}
@@ -108,8 +108,8 @@ function TopNavBar({ setAuthComponent }) {
           {/* Normal Navigation for Desktop */}
           <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button key={page} sx={{ my: 2, color: 'black', display: 'block', fontFamily: 'inter', textTransform: 'none','&:hover': {
-          backgroundColor: 'transparent'},fontWeight:'300',fontSize:'0.9rem'}}>
+              <Button key={page} sx={{ml:3, my: 2, color: 'black', display: 'block', fontFamily: 'inter', textTransform: 'none','&:hover': {
+          backgroundColor: 'transparent'},fontWeight:'300',fontSize:'1rem',padding:0}}>
                 {page}
               </Button>
             ))}
@@ -117,7 +117,7 @@ function TopNavBar({ setAuthComponent }) {
 
           {/* Sign Up and Login Buttons */}
           <Stack
-            spacing={2}
+            spacing={3}
             direction="row"
             sx={{
               display: { xs: 'none', md: 'flex' },
@@ -134,11 +134,11 @@ function TopNavBar({ setAuthComponent }) {
             <Button
               variant="outlined"
               onClick={() => setAuthComponent(<Signup setAuthComponent={setAuthComponent} />)}
-              sx={{ border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', color: 'black', textTransform: 'none', fontFamily: 'inter',fontWeight:'300' }}
+              sx={{ border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', color: 'black', textTransform: 'none', fontFamily: 'inter',fontWeight:'300',fontSize:'1rem'}}
             >
               Sign Up
             </Button>
-            <Button variant="contained" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} sx={{ backgroundColor: '#1f9874', textTransform: 'none', fontFamily: 'inter',fontWeight:'300' }}>
+            <Button variant="contained" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} sx={{ backgroundColor: '#1f9874', textTransform: 'none', fontFamily: 'inter',fontWeight:'300',fontSize:'1rem' }}>
               Login
             </Button>
           </Stack>

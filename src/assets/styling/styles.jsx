@@ -131,7 +131,7 @@ const styles = {
   leftCard: {
     width: "100%", // 25.93rem -> 100% of parent container
     // maxWidth: "25.93rem", // Set a max-width for larger screens
-    padding: "2% 2.8%", // Keep rem for consistent spacing
+    padding: "2% 2.8% 0 2.8%", // Keep rem for consistent spacing
   },
   title: {
     // marginBottom: "0.8rem", // Keep rem for consistent spacing
@@ -163,7 +163,7 @@ const styles = {
   cardContent: {
     display: "flex", // Align elements in column
     flexDirection: "column", // Stack elements vertically
-    gap: "1rem", // Uniform spacing between elements
+    gap: "1.08rem", // Uniform spacing between elements
   },
 };
 

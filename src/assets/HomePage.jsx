@@ -63,7 +63,7 @@ const HomePage = () => {
             sx={{
               display: "flex",
               flexDirection: { xs: "column", sm: "row" },
-              gap: 1,
+              // gap: 1,
               backgroundColor: "#fff",
               boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Custom shadow
               borderRadius: 2,
@@ -74,7 +74,7 @@ const HomePage = () => {
           >
             {/* Industry Dropdown */}
             <FormControl
-              variant="outlined"
+              
               size="small"
               sx={{
                 flex: 1,
@@ -103,9 +103,9 @@ const HomePage = () => {
                   selected ? selected : <span style={{ color: "rgba(0, 0, 0, 0.5)" }}>Industry</span>
                 }
               >
-                <MenuItem value="" disabled>
+                {/* <MenuItem value="" disabled>
                   Industry
-                </MenuItem>
+                </MenuItem> */}
                 <MenuItem value="tech">Technology</MenuItem>
                 <MenuItem value="finance">Finance</MenuItem>
                 <MenuItem value="health">Healthcare</MenuItem>

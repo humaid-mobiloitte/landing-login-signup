@@ -84,7 +84,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
               <Typography sx={{...styles.title,p:0}}>Create Your Account</Typography>
 
               {/* SUBTITLE */}
-              <Typography sx={{...styles.subtitle,p:0}}>
+              <Typography sx={{...styles.subtitle,p:0,mt:-0.5,mb:0.8}}>
                 To get started, please create an account with us. It's a quick and straightforward process that will only take a few minutes.
               </Typography>
 
@@ -95,7 +95,13 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                   placeholder="Enter email address"
                   variant="outlined"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  // TYPIG START HOTE HI ERROR MESSAGE GAYB HOJAYE
+                  onChange={
+                    (e) =>{
+                      setEmail(e.target.value)
+                      setEmailError("")
+                    } 
+                  }
                   onBlur={() => setEmailError(validateEmail(email))}
                   error={!!emailError}
                   helperText={emailError && <Typography sx={styles.errorText}>{emailError}</Typography>}
@@ -117,7 +123,12 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                   type={showPassword ? "text" : "password"}
                   variant="outlined"
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={
+                    (e) =>{
+                      setPassword(e.target.value)
+                      setPasswordError("")
+                    }
+                  }
                   onBlur={() => setPasswordError(validatePassword(password))}
                   error={!!passwordError}
                   helperText={passwordError && <Typography sx={styles.errorText}>{passwordError}</Typography>}
@@ -146,7 +157,12 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
                   type={showConfirmPassword ? "text" : "password"}
                   variant="outlined"
                   value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  onChange={
+                    (e) =>{
+                      setConfirmPassword(e.target.value)
+                      setConfirmPasswordError("")
+                    } 
+                  }
                   onBlur={() => setConfirmPasswordError(validateConfirmPassword(confirmPassword))}
                   error={!!confirmPasswordError}
                   helperText={confirmPasswordError && <Typography sx={styles.errorText}>{confirmPasswordError}</Typography>}
@@ -189,7 +205,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
               {/* CHECK BOX KI ERROR HANDLING */}
               {/* helperText={confirmPasswordError && <Typography sx={styles.errorText}>{confirmPasswordError} */}
                {checkboxError && (
-                  <Typography color="error" sx={{ fontSize: '0.7rem', marginTop: '-10px' }}>
+                  <Typography color="error" sx={{ fontSize: '0.7rem', marginTop: '-18px',position:'relative' }}>
                     {checkboxError}
                   </Typography>
                )}
@@ -211,7 +227,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
               </Button>
 
               {/* SIGNUP KRWANE K LIYE */}
-              <Typography sx={{ textAlign: 'center', fontSize: '0.9rem' }}>
+              <Typography sx={{ textAlign: 'center', fontSize: '0.9rem', mt:0.5}}>
                 Already have an account?{' '}
                 <a href="#" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} style={{ textDecoration: 'none', color: '#025043' }}>
                   Login
