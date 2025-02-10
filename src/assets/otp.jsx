@@ -123,7 +123,7 @@ export default function OTP({ setAuthComponent }) {
               </Box>
 
               {error && (
-                <Typography color="error" sx={{ fontSize: '0.9rem', marginTop: '10px' }}>
+                <Typography color="error" sx={{ fontSize: '0.7rem', marginTop: '10px' }}>
                   {error}
                 </Typography>
               )}

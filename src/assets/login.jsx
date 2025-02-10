@@ -129,7 +129,7 @@ export default function Login({ setAuthComponent }) {
 
               <Box display='flex' justifyContent='space-between' alignItems='center' sx={styles.subtitle}>
                 <FormControlLabel control={<Checkbox />} label={<Typography>Remember me</Typography>} />
-                <Typography sx={{ cursor: 'pointer', color: '#025043' }}>Forgot password?</Typography>
+                <Typography sx={{ cursor: 'pointer', color: '#025043'}}>Forgot password?</Typography>
               </Box>
 
               {/* LOGIN BUTTON */}

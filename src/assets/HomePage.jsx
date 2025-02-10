@@ -9,7 +9,7 @@ const HomePage = () => {
       sx={{
         flexGrow: 1,
         fontFamily: "inter",
-        backgroundImage:{md:"url('src/assets/images/landing_page_background.svg')",xs:'none'},
+        backgroundImage:{md:"url('src/assets/images/HOMESCREEN_background.png')",xs:'none'},
         // backgroundImage: "url('src/assets/images/landing_page_background.svg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -35,7 +35,7 @@ const HomePage = () => {
           sx={{
             maxWidth: 620,
             textAlign: { xs: "center", md: "left" },
-            ml: { md: "13%" },
+            ml: { md: "14%" },
           }}
         >
           <Typography
@@ -70,6 +70,8 @@ const HomePage = () => {
               p: 1,
               alignItems: "center",
               border: "1px solid rgba(0, 0, 0, 0.1)", // Optional border for more definition
+              // YHA SE SHURU KRNA HAI
+              width:"100%"
             }}
           >
             {/* Industry Dropdown */}
@@ -102,6 +104,7 @@ const HomePage = () => {
                 renderValue={(selected) =>
                   selected ? selected : <span style={{ color: "rgba(0, 0, 0, 0.5)" }}>Industry</span>
                 }
+                sx={{padding:'0.2rem'}}
               >
                 {/* <MenuItem value="" disabled>
                   Industry
