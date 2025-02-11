@@ -1,250 +1,195 @@
+const primaryColor = "#1f9874";
+const secondaryColor = "#025043";
+const fontFamily = "Inter, sans-serif";
+const borderRadius = "0.625em"; // 10px
+const inputHeight = "3rem"; // 52px
+const fontSizeSmall = "0.7rem";
+const fontSizeMedium = "0.875em"; // 14px
+const fontSizeLarge = "1.5rem"; // 24px
+const spacingSmall = "0.625em"; // 10px
+const spacingMedium = "2%";
+
 const styles = {
+  // Button styles
   button: {
-    padding: "0.625em", // 10px -> 0.625em (relative to font size)
-    fontSize: "0.875em", // 14px -> 0.875em
-    borderRadius: "0.5em", // 8px -> 0.5em
-    backgroundColor: "#1f9874",
-    // marginBottom: "1.2rem", // Keep rem for consistent spacing
+    padding: spacingSmall,
+    fontSize: fontSizeMedium,
+    borderRadius,
+    backgroundColor: primaryColor,
     textTransform: "none",
-    fontFamily: "inter",
+    fontFamily,
   },
+  // Container styles
   container: {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
   },
+  // Card styles
   card: {
     display: "flex",
-    // flexDirection: "row",
-    // maxWidth: "90%", // 900px -> 90% of parent container
     borderRadius: "1.4em", // 20px -> 1.25em
-    // overflow: "hidden",
     boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)",
   },
   // FOR SIGNUP PAGE
-  signUpCard:{
-    maxWidth: '840px',
-    maxHeight:'86vh'
+  signUpCard: {
+    maxWidth: "840px",
+    maxHeight: "86vh",
   },
   // FOR LOGIN PAGE
-  loginCard:{
-    maxWidth: '900px', 
-    maxHeight: 'auto'
+  loginCard: {
+    maxWidth: "900px",
+    maxHeight: "auto",
   },
   // FOR OTP PAGES
-  otpCards:{
-    maxWidth: '780px', 
-    maxHeight: 'auto'
+  otpCards: {
+    maxWidth: "780px",
+    maxHeight: "auto",
   },
+  // Image container styles
   imageContainer: {
-    width: "50%", // Already responsive
-    height: "100%", // Already responsive
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center",
-    // backgroundSize: "cover",
+    width: "50%",
+    height: "100%",
     backgroundPosition: "center",
-    display: { xs: 'none', md: 'block' }
+    display: { xs: "none", md: "block" },
   },
+  // Image styles
   image: {
-    width: "100%", // Already responsive
-    height: "100%", // Already responsive
-    // AspectRatio:'9:16',
+    width: "100%",
+    height: "100%",
     objectFit: "cover",
   },
+  // Input group styles
   inputGroup: {
-    // marginBottom: "0.9375em", // 15px -> 0.9375em
-    // marginBottom: "2em", // 15px -> 0.9375em
-    fontSize: "0.8rem", // Keep rem for consistent font size
-    fontFamily: "inter",
+    fontSize: "0.8rem",
+    fontFamily,
   },
+  // Input field styles
   inputField: {
-    width: "100%", // 20rem -> 100% of parent container
-    // maxWidth: "20rem", // Set a max-width for larger screens
-    borderRadius: "0.625em", // 10px -> 0.625em
+    width: "100%",
+    borderRadius,
     "& .MuiOutlinedInput-root": {
-      borderRadius: "0.625em", // 10px -> 0.625em
-      height: "3rem", // 52px -> 3.25em
-      // marginTop:'inherit'
+      borderRadius,
+      height: inputHeight,
     },
     "& input::placeholder": {
-        fontFamily: "Inter, sans-serif",
-        fontSize: "0.85rem", // Adjust as needed
-      },
+      fontFamily,
+      fontSize: "0.85rem",
+    },
   },
-  signUpPasswordInputField:{
-    margin:"3% 0"
-  },
-  loginPasswordInputField:{
-    marginTop: '3%'
-  },
+  // Password input field styles for signup
+  signUpPasswordInputField: { margin: "3% 0" },
+  // Password input field styles for login
+  loginPasswordInputField: { marginTop: "3%" },
+  // Left card section styles
   leftCard: {
-    width: "100%", // 25.93rem -> 100% of parent container
-    // maxWidth: "25.93rem", // Set a max-width for larger screens
-    padding: "2% 2.8% 0 2.8%", // Keep rem for consistent spacing
+    width: "100%",
+    padding: `${spacingMedium} 2.8% 0 2.8%`,
   },
+  // Title styles
   title: {
-    // marginBottom: "0.8rem", // Keep rem for consistent spacing
     margin: "0 0",
-    padding:'0 0',
+    padding: "0 0",
     fontWeight: 800,
-    fontSize: "1.5rem", // Keep rem for consistent font size
-    fontFamily: "inter",
+    fontSize: fontSizeLarge,
+    fontFamily,
     textTransform: "none",
   },
+  // Subtitle styles
   subtitle: {
-    // marginBottom: "0.8rem", // Keep rem for consistent spacing
-    fontSize: "0.7rem", // Keep rem for consistent font size
-    fontFamily: "inter",
-    width: "100%", // 20rem -> 100% of parent container
-    // maxWidth: "20rem", // Set a max-width for larger screens
+    fontSize: "0.7rem",
+    fontFamily,
+    width: "100%",
   },
   // SUBTITLE FOR SIGNUP
-  signUpSubtitle:{
-    mt:-0.5,
-    mb:0.8
-  },
+  signUpSubtitle: { mt: -0.5, mb: 0.8 },
   // SUBTITLE FOR LOGIN
-  loginSubtitle:{
-    mt: -0.4, 
-    mb: 1 
-  },
-  
-
-  // Added styles for aligning error messages properly
+  loginSubtitle: { mt: -0.4, mb: 1 },
+  // Error text styles
   errorText: {
-    fontSize: "0.7rem", // Keep error message font size consistent
-    // color: "red", // Ensure visibility of error messages
-    marginLeft: "-0.8rem", // Align with existing elements from the left
-    // marginRight: "0.3rem", // Align with existing elements from the right
-    marginTop:'0.2rem',
-    position:"absolute"
+    fontSize: fontSizeSmall,
+    marginLeft: "-0.8rem",
+    marginTop: "0.2rem",
+    position: "absolute",
   },
-  checkBoxErrorText:{
-    fontSize: '0.7rem', 
-    marginTop: '-18px',
-    position:'relative'
+  // Checkbox error text styles
+  checkBoxErrorText: {
+    fontSize: fontSizeSmall,
+    marginTop: "-18px",
+    position: "relative",
   },
-
-  orTextStyle:{
-    fontFamily:'inter', 
-    textAlign: 'center', 
-    fontSize: '0.9rem' 
+  // OR text styles
+  orTextStyle: {
+    fontFamily,
+    textAlign: "center",
+    fontSize: "0.9rem",
   },
-  googleButtonStyle:{
-    backgroundColor: '#ffffff', 
-    color:'black'
+  // Google button styles
+  googleButtonStyle: { backgroundColor: "#ffffff", color: "black" },
+  // Google icon styles
+  googleIconStyle: { width: "25px", height: "auto", marginRight: "10px" },
+  // Bottom text for login/signup pages
+  bottomTextForBoth: {
+    marginTop: "1%",
+    textAlign: "center",
+    fontSize: "0.9rem",
   },
-  googleIconStyle:{ 
-    width: '25px', 
-    height: 'auto', 
-    marginRight: '10px' 
+  // Link text styles
+  linkTextStyle: {
+    textDecoration: "none",
+    color: secondaryColor,
   },
-  // LOGIN YA SIGNUP KRWANE WALA BOTTOM TEXT
-  bottomTextForBoth:{
-    marginTop:'1%',
-    textAlign: 'center', 
-    fontSize: '0.9rem'
+  // Forgot password text styles
+  forgotPasswordStyle: { cursor: "pointer", color: secondaryColor },
+  // Remember Me and Forgot Password row
+  rememMeForgotPass: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
-
-  //wo text jo is page se us page le jayega
-  linkTextStyle:{
-    textDecoration: 'none', 
-    color: '#025043' 
+  // OTP input container styles
+  otpInputContainer: {
+    display: "flex",
+    gap: 2,
+    justifyContent: "center",
   },
-
-  // forgot password text
-  forgotPasswordStyle:{ 
-    cursor: 'pointer', 
-    color: '#025043'
+  // OTP digit styles
+  otpDigitStyles: { textAlign: "center", fontSize: "20px", padding: "0" },
+  // OTP box styles
+  otpBox: {
+    width: "3.5rem",
+    height: "2.6rem",
+    "& .MuiOutlinedInput-root": { height: "100%", padding: "0" },
+    "& .MuiOutlinedInput-input": { padding: "0", height: "100%" },
   },
-  // REMEMBER ME FORGOT PASSWORD WALI ROW
-  rememMeForgotPass:{
-    display:'flex',
-    justifyContent:'space-between',
-    alignItems:'center'
-  },
-  // OTP input container, jiske andr dabbe hain
-  otpInputContainer:{
-    display:"flex", 
-    gap:2,
-    justifyContent:"center"
-  },
-  // otp digit ka design
-  otpDigitStyles:{
-    textAlign: 'center', 
-    fontSize: '20px', 
-    padding: '0',
-  },
-  // OTP box ka design
-  otpBox:{
-    width: '3.5rem', 
-    height: '2.6rem', 
-    '& .MuiOutlinedInput-root': {
-      height: '100%', // Ensure the root takes full height
-      padding: '0', // Remove padding from the root
-    },
-    '& .MuiOutlinedInput-input': {
-      padding: '0', // Remove padding from the input
-      height: '100%', // Ensure the input takes full height
-    },
-  },
-  // OTP resend text/link
-  resendOTP:{
-    cursor: 'pointer', 
-    color: '#025043', 
-    fontWeight: 'bold'
-  },
-
-  // OTP timer
-  timerOTP:{
-    color: 'gray', 
-    fontWeight: 'bold'
-  },
-  // OTP error message
-  errorOTP:{
-    fontSize: '0.7rem', 
-    marginTop: '10px'
-  },
-  //resend otp ka messagr
-  resendOTPMessage:{
-    backgroundColor: 
-    'rgba(83,182,81,1)',
-    color: 'white',
-    padding: '10px',
-    textAlign: 'center',
-    borderRadius: '4px',
-    marginTop: '10px',
+  // OTP resend text styles
+  resendOTP: { cursor: "pointer", color: secondaryColor, fontWeight: "bold" },
+  // OTP timer styles
+  timerOTP: { color: "gray", fontWeight: "bold" },
+  // OTP error message styles
+  errorOTP: { fontSize: fontSizeSmall, marginTop: "10px" },
+  // Resend OTP message styles
+  resendOTPMessage: {
+    backgroundColor: "rgba(83,182,81,1)",
+    color: "white",
+    padding: "10px",
+    textAlign: "center",
+    borderRadius: "4px",
+    marginTop: "10px",
   },
   // OTP success button styles
-  otpSuccessButtons:{ 
-    backgroundColor: 'lightgrey',
-    color:"black" 
-  },
-  // OTP SUCCESS PAGE ICON
-  otpSuccIcon:{
-    width:'7rem',
-    height:'auto',
-    color:'#1f9874'
-  },
-
-  // otp success k items straight line mei vertically aligned hain,usi k liye ye hai
-  otpSuccCardContent:{
-    alignItems:'center'
-  },
-
-  //otp success k subtitle ko bhi centre mei rkhna hai
-  otpSuccSubtitle:{
-    textAlign:'center'
-  },
-
-
-  
-  // ===== ADDED BY CHATGPT: New styles for CardContent Flex Layout =====
+  otpSuccessButtons: { backgroundColor: "lightgrey", color: "black" },
+  // OTP success page icon styles
+  otpSuccIcon: { width: "7rem", height: "auto", color: primaryColor },
+  // OTP success card content alignment
+  otpSuccCardContent: { alignItems: "center" },
+  // OTP success subtitle alignment
+  otpSuccSubtitle: { textAlign: "center" },
+  // Card content layout
   cardContent: {
-    display: "flex", // Align elements in column
-    flexDirection: "column", // Stack elements vertically
-    gap: "1.08rem", // Uniform spacing between elements
+    display: "flex",
+    flexDirection: "column",
+    gap: "1.08rem",
   },
 };
 
