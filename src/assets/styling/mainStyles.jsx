@@ -183,6 +183,37 @@ const mainStyles = {
         maxWidth: '14rem', 
         height: 'auto' 
     },
+
+    navBarPClayout:{ 
+      flexGrow: 0, 
+      display:{ 
+        xs: 'none', 
+        md: 'flex' 
+      } 
+    },
+
+    navBarButtons:{
+      ml:3, 
+      my: 2, 
+      color: 'black', 
+      display: 'block', 
+      fontFamily: 'inter', 
+      textTransform: 'none','&:hover': {
+        backgroundColor: 'transparent'
+      },
+      fontWeight:'300',
+      fontSize:'1rem',
+      padding:0
+    },
+
+    // RESPONSIVE MENU
+    responsiveMenuBox:{ 
+      display:{ 
+        xs: 'flex', 
+        md: 'none' 
+      },
+      // marginRight:'100px' 
+    }, 
   
     responsiveMenuButton: {
       my: 1,
@@ -199,28 +230,68 @@ const mainStyles = {
       alignItems: "center",
       padding: 0,
     },
+
+    menuIconStyle:{ 
+      color: 'white', 
+      fontSize: 24 
+    },
   
     menuItems: {
       textTransform: "none",
       fontFamily: "inter",
+    },
+
+    dropDownLayout:{ 
+      display:{ 
+        xs: 'block', 
+        md: 'none',
+      },
+
+    },
+    // SMALL SCREEN LOGIN AND SIGNUP BUTTONS PARENT
+    mobileButtonParent:{
+      // Shared styles for all buttons inside this parent
+      '& button': {
+        minWidth: '100px',
+        minHeight: '45px',
+        // width: { xs: '100px', md: '120px' }, 
+        width: '100px',
+        // height: { xs: '45px', md: '53px' }, 
+        height: '45px',
+        borderRadius: '10px',
+        fontFamily: 'inter',
+        fontSize: '1rem',
+        textTransform: 'none',
+      },
+    },
+
+    // NORMAL PC LOGIN AND SIGNUP BUTTONS PARENT
+    pcButtonParent:{
+      display: { xs: 'none', md: 'flex' },
+      ml: 2,
+      '& button': {
+        minWidth: '100px',
+        minHeight: '45px',
+        // width: { xs: '100px', md: '120px' },
+        width:'120px',
+        // height: { xs: '45px', md: '53px' },
+        height:'53px',
+        borderRadius: '10px',
+        textTransform: "none",
+        fontFamily: "inter",
+        fontWeight: "300",
+        fontSize: "1rem",
+      },
     },
   
     signUpButton: {
       border: "none",
       boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
       color: "black",
-      textTransform: "none",
-      fontFamily: "inter",
-      fontWeight: "300",
-      fontSize: "1rem",
     },
   
     loginButton: {
       backgroundColor: "#1f9874",
-      textTransform: "none",
-      fontFamily: "inter",
-      fontWeight: "300",
-      fontSize: "1rem",
     },
   };
   

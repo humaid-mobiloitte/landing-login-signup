@@ -36,113 +36,80 @@ function TopNavBar({ setAuthComponent }) {
             <img src={TextContent.images.navbar_LOGO} alt={TextContent.images.logoAlt} style={mainStyles.logoImage} />
           </Box>
 
-          {/* Responsive Menu Button */}
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <Button
-              variant="contained"
-              onClick={handleOpenNavMenu}
-              sx={{
-                my: 1,
-                backgroundColor: '#1f9874',
-                minWidth: '45px',
-                minHeight: '45px',
-                width: { xs: '45px', md: '53px' },
-                height: { xs: '45px', md: '53px' },
-                borderRadius: '10px',
-                textTransform: 'none',
-                fontFamily: 'inter',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                padding: 0,
-              }}
-            >
-              <MenuIcon sx={{ color: 'white', fontSize: 24 }} /> {/* Dropdown Icon */}
+          {/* Responsive Menu */}
+          <Box sx={mainStyles.responsiveMenuBox}>
+
+            {/* Responsive Menu Button */}
+            <Button variant="contained" onClick={handleOpenNavMenu} sx={mainStyles.responsiveMenuButton}>
+              
+              {/* Icon - small screen */}
+              <MenuIcon sx={mainStyles.menuIconStyle} /> 
             </Button>
-            <Menu anchorEl={anchorElNav} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu} sx={{ display: { xs: 'block', md: 'none' } }}>
+
+            {/* DROP DOWN - small screen */}
+            <Menu anchorEl={anchorElNav} open={Boolean(anchorElNav)} onClose={handleCloseNavMenu} sx={mainStyles.dropDownLayout}>
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={{ textTransform: 'none', fontFamily: 'inter' }}>
-                    {page}
-                  </Typography>
-                </MenuItem>
+              <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <Typography textAlign="center" sx={mainStyles.menuItems}>
+                  {page}
+                </Typography>
+              </MenuItem>
               ))}
-              <MenuItem>
-                <Button
-                  variant="outlined"
-                  fullWidth
-                  onClick={() => setAuthComponent(<Signup setAuthComponent={setAuthComponent} />)}
-                  sx={{
-                    my: 1,
-                    border: 'none',
-                    boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
-                    minWidth: '100px',
-                    minHeight: '45px',
-                    width: { xs: '100px', md: '120px' },
-                    height: { xs: '45px', md: '53px' },
-                    borderRadius: '10px',
-                    color: 'black',
-                  }}
-                >
-                  {TextContent.links.signUp}
-                </Button>
-              </MenuItem>
-              <MenuItem>
-                <Button
-                  variant="contained"
-                  fullWidth
-                  onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)}
-                  sx={{
-                    backgroundColor: '#1f9874',
-                    minWidth: '100px',
-                    minHeight: '45px',
-                    width: { xs: '100px', md: '120px' },
-                    height: { xs: '45px', md: '53px' },
-                    borderRadius: '10px',
-                  }}
-                >
-                  {TextContent.links.login}
-                </Button>
-              </MenuItem>
+
+              {/* SIGNUP AND LOGIN BUTTONS - small screen */}
+              <Box sx={mainStyles.mobileButtonParent}>
+                {/* SIGNUP BUTTON */}
+                <MenuItem>
+                  <Button
+                    variant="outlined"
+                    fullWidth
+                    onClick={() => setAuthComponent(<Signup setAuthComponent={setAuthComponent} />)}
+                    sx={mainStyles.signUpButton}
+                  >
+                    {TextContent.links.signUp}
+                  </Button>
+                </MenuItem>
+
+                {/* LOGIN BUTTON - small screen */}
+                <MenuItem>
+                  <Button
+                    variant="contained"
+                    fullWidth
+                    onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)}
+                    sx={mainStyles.loginButton}
+                  >
+                    {TextContent.links.login}
+                  </Button>
+                </MenuItem>
+              </Box>
             </Menu>
           </Box>
 
           {/* Normal Navigation for Desktop */}
-          <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+          <Box sx={mainStyles.navBarPClayout}>
             {pages.map((page) => (
-              <Button key={page} sx={{ml:3, my: 2, color: 'black', display: 'block', fontFamily: 'inter', textTransform: 'none','&:hover': {
-          backgroundColor: 'transparent'},fontWeight:'300',fontSize:'1rem',padding:0}}>
+              <Button key={page} sx={mainStyles.navBarButtons}>
                 {page}
               </Button>
             ))}
           </Box>
 
           {/* Sign Up and Login Buttons */}
-          <Stack
-            spacing={3}
-            direction="row"
-            sx={{
-              display: { xs: 'none', md: 'flex' },
-              ml: 2,
-              '& button': {
-                minWidth: '100px',
-                minHeight: '45px',
-                width: { xs: '100px', md: '120px' },
-                height: { xs: '45px', md: '53px' },
-                borderRadius: '10px',
-              },
-            }}
-          >
+          <Stack spacing={3} direction="row" sx={mainStyles.pcButtonParent}>
+
+            {/* SIGN UP BUTTON */}
             <Button
               variant="outlined"
               onClick={() => setAuthComponent(<Signup setAuthComponent={setAuthComponent} />)}
-              sx={{ border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', color: 'black', textTransform: 'none', fontFamily: 'inter',fontWeight:'300',fontSize:'1rem'}}
+              sx={mainStyles.signUpButton}
             >
               {TextContent.links.signUp}
             </Button>
-            <Button variant="contained" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} sx={{ backgroundColor: '#1f9874', textTransform: 'none', fontFamily: 'inter',fontWeight:'300',fontSize:'1rem' }}>
+
+            <Button variant="contained" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} sx={mainStyles.loginButton}>
             {TextContent.links.login}
             </Button>
+
           </Stack>
         </Toolbar>
       </Container>
