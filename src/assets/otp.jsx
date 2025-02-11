@@ -3,7 +3,8 @@ import { useState, useRef, useEffect } from 'react';
 import styles from './styling/styles';
 import ImageContent from './imageContent';
 import OTPSuccess from './OTPSuccess';
-import TextContent from './TextContent';
+import { TextContent } from '../data/data';
+// import TextContent from './TextContent';
 
 export default function OTP({ setAuthComponent }) {
   const [otp, setOtp] = useState(Array(6).fill(''));
@@ -44,7 +45,7 @@ export default function OTP({ setAuthComponent }) {
 
   const handleSubmit = () => {
     if (otp.includes('')) {
-      setError('Please enter the complete 6-digit OTP.');
+      setError(TextContent.validation.otp.required);
     } else {
       setOtpVerified(true)
       setAuthComponent(<OTPSuccess setAuthComponent={setAuthComponent} />)
@@ -53,7 +54,7 @@ export default function OTP({ setAuthComponent }) {
 
   const handleResend = () => {
     setOtp(Array(6).fill('')); // Clear OTP input fields
-    setResendMessage('OTP resent successfully');
+    setResendMessage(TextContent.messages.otpResent);
     setTimer(180); // Reset the timer
     setError('');
     setOtpVerified(false);
@@ -158,7 +159,7 @@ export default function OTP({ setAuthComponent }) {
           </Grid>
 
           {/* Right Side - Image */}
-          <ImageContent ImageSrc={'src/assets/images/otp_first_image.svg'} />
+          <ImageContent ImageSrc={TextContent.images.otp} />
         </Grid>
       </Card>
     </Container>

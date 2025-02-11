@@ -5,7 +5,8 @@ import styles from './styling/styles';
 import ImageContent from './imageContent';
 import Login from './login';
 import OTP from './otp';
-import TextContent from './TextContent';
+import { TextContent } from '../data/data';
+// import TextContent from './TextContent';
 
 export default function Signup({ setAuthComponent }) {
   const [email, setEmail] = useState('');
@@ -25,31 +26,31 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
   // Email validation function
   const validateEmail = (value) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!value) return "Please enter your email address.";
-    if (value.length > 100) return "Email cannot exceed 100 characters.";
-    if (!emailRegex.test(value)) return "Please enter a valid email address.";
+    if (!value) return TextContent.validation.email.required
+    if (value.length > 100) return TextContent.validation.email.maxLength
+    if (!emailRegex.test(value)) return TextContent.validation.email.invalid
     return "";
   };
 
   // Password validation function
   const validatePassword = (value) => {
-    if (!value) return "Please enter your password.";
-    if (value.length < 6) return "Password must be at least 6 characters.";
-    if (value.length > 20) return "Password cannot exceed 20 characters.";
+    if (!value) return TextContent.validation.password.required
+    if (value.length < 6) return TextContent.validation.password.minLength
+    if (value.length > 20) return TextContent.validation.password.maxLength
     return "";
   };
 
   // Confirm Password validation function
   const validateConfirmPassword = (value) => {
-    if (!value) return "Please confirm your password.";
-    if (value !== password) return "Passwords do not match.";
+    if (!value) return TextContent.validation.confirmPassword.required
+    if (value !== password) return TextContent.validation.confirmPassword.mismatch
     return "";
   };
 
   // Checkbox validation
   const validateCheckbox = () => {
     if (!isChecked) {
-      setCheckboxError("Please agree to the terms to proceed.");
+      setCheckboxError(TextContent.validation.checkbox.required);
       return false;
     }
     setCheckboxError("");
@@ -238,7 +239,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
           </Grid>
 
           {/* Right Side - Image */}
-          <ImageContent ImageSrc={'src/assets/images/signup_right_image.png'}/>
+          <ImageContent ImageSrc={TextContent.images.signup}/>
 
 
         </Grid>

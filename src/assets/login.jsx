@@ -24,14 +24,14 @@ export default function Login({ setAuthComponent }) {
 
     if (field === 'email') {
       if (!email.trim()) {
-        newErrors.email = 'Please enter your email address.';
+        newErrors.email = TextContent.validation.email.required
       } else if (!validateEmail(email)) {
-        newErrors.email = 'Please enter a valid email address.';
+        newErrors.email = TextContent.validation.email.invalid
       }
     }
 
     if (field === 'password' && !password.trim()) {
-      newErrors.password = 'Please enter your password.';
+      newErrors.password = TextContent.validation.password.required
     }
 
     setErrors(newErrors);
@@ -42,13 +42,13 @@ export default function Login({ setAuthComponent }) {
     let newErrors = { email: '', password: '' };
 
     if (!email.trim()) {
-      newErrors.email = 'Please enter your email address.';
+      newErrors.email = TextContent.validation.email.required
     } else if (!validateEmail(email)) {
-      newErrors.email = 'Please enter a valid email address.';
+      newErrors.email = TextContent.validation.email.invalid
     }
 
     if (!password.trim()) {
-      newErrors.password = 'Please enter your password.';
+      newErrors.password = TextContent.validation.password.required
     }
 
     setErrors(newErrors);
@@ -163,9 +163,7 @@ export default function Login({ setAuthComponent }) {
                 }}
               >
                 <img
-                  src='src/assets/images/icons8-google.svg'
-                  alt='google icon'
-                  style={{ width: '20px', marginRight: '8px' }}
+                  src='src/assets/images/icons8-google.svg' alt='google icon' style={{ width: '20px', marginRight: '8px' }}
                 />
                 {TextContent.buttons.googleSignIn}
               </Button>
@@ -184,7 +182,7 @@ export default function Login({ setAuthComponent }) {
           </Grid>
 
           {/* Right Side - Image */}
-          <ImageContent ImageSrc={'src/assets/images/login_right_image.png'} />
+          <ImageContent ImageSrc={TextContent.images.login} />
         </Grid>
       </Card>
     </Container>

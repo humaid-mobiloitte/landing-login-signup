@@ -74,4 +74,11 @@ export const TextContent = {
     messages: {
       otpResent: "OTP resent successfully",
     },
+
+    images:{
+      login:"src/assets/images/login_right_image.png",
+      signup:"src/assets/images/signup_right_image.png",
+      otp:"src/assets/images/otp_first_image.svg",
+      otpSuccess:"src/assets/images/otp_success_image.svg",
+    }
   };  

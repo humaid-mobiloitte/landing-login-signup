@@ -3,7 +3,9 @@ import { useState, useRef, useEffect } from 'react';
 import styles from './styling/styles';
 import ImageContent from './imageContent';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import TextContent from './TextContent';
+import { TextContent } from '../data/data';
+// import TextContent from './TextContent';
+
 export default function OTPSuccess({ setAuthComponent }) {
 
   return (
@@ -46,7 +48,7 @@ export default function OTPSuccess({ setAuthComponent }) {
           </Grid>
 
           {/* Right Side - Image */}
-          <ImageContent ImageSrc={'src/assets/images/otp_success_image.svg'}/>
+          <ImageContent ImageSrc={TextContent.images.otpSuccess}/>
         </Grid>
       </Card>
     </Container>
