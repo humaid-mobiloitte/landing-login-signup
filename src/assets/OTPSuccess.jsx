@@ -14,19 +14,22 @@ export default function OTPSuccess({ setAuthComponent }) {
         <Grid container>
           {/* Left Side - OTP Form */}
           <Grid item xs={12} md={6} sx={styles.leftCard}>
-            <CardContent sx={{...styles.cardContent,alignItems:'center'}}>
+
+            <CardContent sx={{...styles.cardContent, ...styles.otpSuccCardContent}}>
+              {/* ACCOUNT CREATED TITLE */}
               <Typography sx={styles.title}>{TextContent.title.accountCreated}</Typography>
-              <Typography sx={{...styles.subtitle,textAlign:'center'}}>{TextContent.subtitle.accountCreated}</Typography>
+              {/* SUBTITILE */}
+              <Typography sx={{...styles.subtitle,...styles.otpSuccSubtitle}}>{TextContent.subtitle.accountCreated}</Typography>
+              {/* TICK ICON */}
+              <CheckCircleIcon sx={styles.otpSuccIcon}/>
 
-              <CheckCircleIcon sx={{width:'7rem',height:'auto',color:'#1f9874'}}/>
-
-
+              {/* 2ND TITLE */}
               <Typography sx={styles.title}>{TextContent.title.accountCreated_T2}</Typography>
 
               <Button
                 variant="contained"
-                color="black"
-                style={{ backgroundColor: 'lightgrey' }}
+          
+                style={styles.otpSuccessButtons}
                 fullWidth
                 sx={styles.button}
               >
@@ -35,8 +38,7 @@ export default function OTPSuccess({ setAuthComponent }) {
 
               <Button
                 variant="contained"
-                color="black"
-                style={{ backgroundColor: 'lightgrey' }}
+                style={styles.otpSuccessButtons}
                 fullWidth
                 sx={styles.button}
               >

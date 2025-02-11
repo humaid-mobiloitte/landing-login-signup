@@ -216,6 +216,28 @@ const styles = {
     borderRadius: '4px',
     marginTop: '10px',
   },
+  // OTP success button styles
+  otpSuccessButtons:{ 
+    backgroundColor: 'lightgrey',
+    color:"black" 
+  },
+  // OTP SUCCESS PAGE ICON
+  otpSuccIcon:{
+    width:'7rem',
+    height:'auto',
+    color:'#1f9874'
+  },
+
+  // otp success k items straight line mei vertically aligned hain,usi k liye ye hai
+  otpSuccCardContent:{
+    alignItems:'center'
+  },
+
+  //otp success k subtitle ko bhi centre mei rkhna hai
+  otpSuccSubtitle:{
+    textAlign:'center'
+  },
+
 
   
   // ===== ADDED BY CHATGPT: New styles for CardContent Flex Layout =====
