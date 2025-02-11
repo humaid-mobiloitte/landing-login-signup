@@ -62,13 +62,15 @@ export default function Login({ setAuthComponent }) {
 
   return (
     <Container sx={styles.container}>
-      <Card sx={{ ...styles.card, maxWidth: '900px', maxHeight: 'auto' }}>
+      <Card sx={{ ...styles.card, ...styles.loginCard}}>
         <Grid container>
           {/* Left Side - Login Form */}
           <Grid item xs={12} md={6} sx={styles.leftCard}>
             <CardContent sx={styles.cardContent}>
+              {/* LOGIN TITLE */}
               <Typography sx={styles.title}>{TextContent.title.login}</Typography>
-              <Typography sx={{ ...styles.subtitle, mt: -0.4, mb: 1 }}>
+              {/* LOGIN SUBTITLE */}
+              <Typography sx={{ ...styles.subtitle, ...styles.loginSubtitle}}>
                 {TextContent.subtitle.login}
               </Typography>
 
@@ -99,7 +101,7 @@ export default function Login({ setAuthComponent }) {
               {/* PASSWORD INPUT FIELD */}
               <Box sx={styles.inputGroup}>
                 <TextField
-                  sx={{ ...styles.inputField, marginTop: '3%' }}
+                  sx={{ ...styles.inputField, ...styles.loginPasswordInputField}}
                   placeholder={TextContent.placeholders.password}
                   type={showPassword ? 'text' : 'password'}
                   variant='outlined'
@@ -128,52 +130,40 @@ export default function Login({ setAuthComponent }) {
                 />
               </Box>
 
-              <Box display='flex' justifyContent='space-between' alignItems='center' sx={styles.subtitle}>
+              {/* REMEMBER ME - FORGOT PASSWORD  */}
+              <Box sx={{...styles.subtitle,...styles.rememMeForgotPass}}>
                 <FormControlLabel control={<Checkbox />} label={<Typography>{TextContent.labels.rememberMe}</Typography>} />
-                <Typography sx={{ cursor: 'pointer', color: '#025043'}}>{TextContent.labels.forgotPassword}</Typography>
+                <Typography sx={styles.forgotPasswordStyle}>{TextContent.labels.forgotPassword}</Typography>
               </Box>
 
               {/* LOGIN BUTTON */}
               <Button
                 variant='contained'
-                color='primary'
-                style={{ backgroundColor: '#1f9874' }}
                 sx={{ ...styles.inputField, ...styles.button }}
                 onClick={handleLogin}
               >
                 {TextContent.buttons.login}
               </Button>
-
-              <Typography sx={{ ...styles.subtitle, textAlign: 'center', fontSize: '0.9rem' }}>{TextContent.misc.orText}</Typography>
+                {/* OR text */}
+              <Typography sx={styles.orTextStyle}>{TextContent.misc.orText}</Typography>
 
               {/* GOOGLE SIGN-IN BUTTON */}
-              <Button
-                variant='contained'
-                fullWidth
-                sx={{
-                  ...styles.button,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  backgroundColor: '#ffffff',
-                  borderRadius: '10px',
-                  fontSize: '0.875rem',
-                  p: 1,
-                  color: 'black',
-                }}
-              >
+              <Button variant='contained' fullWidth sx={{ ...styles.inputField, ...styles.button, ...styles.googleButtonStyle}}>
+                {/* GOOGLE ICON */}
                 <img
-                  src={TextContent.images.googleIcon} alt={TextContent.images.iconAlt} style={{ width: '20px', marginRight: '8px' }}
+                  src={TextContent.images.googleIcon} alt={TextContent.images.iconAlt} style={styles.googleIconStyle}
                 />
                 {TextContent.buttons.googleSignIn}
               </Button>
 
-              <Typography sx={{ ...styles.subtitle, textAlign: 'center', fontSize: '0.9rem' }}>
+                {/* SIGNUP KRWANE K LIYE */}
+              <Typography sx={{ ...styles.subtitle, ...styles.bottomTextForBoth }}>
                 {TextContent.links.dontHaveAccount}{' '}
+                {/* wo text jo is page se us page le jayega */}
                 <a
                   href='#'
                   onClick={() => setAuthComponent(<Signup setAuthComponent={setAuthComponent} />)}
-                  style={{ textDecoration: 'none', color: '#025043' }}
+                  style={styles.linkTextStyle}
                 >
                   {TextContent.links.signUp}
                 </a>

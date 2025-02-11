@@ -10,7 +10,7 @@ export default function OTPSuccess({ setAuthComponent }) {
 
   return (
     <Container sx={styles.container}>
-      <Card sx={{ ...styles.card, maxWidth: '780px',maxHeight:'auto'}}>
+      <Card sx={{ ...styles.card, ...styles.otpCards}}>
         <Grid container>
           {/* Left Side - OTP Form */}
           <Grid item xs={12} md={6} sx={styles.leftCard}>

@@ -68,16 +68,19 @@ export default function OTP({ setAuthComponent }) {
 
   return (
     <Container sx={styles.container}>
-      <Card sx={{ ...styles.card, maxWidth: '780px', maxHeight: 'auto' }}>
+      <Card sx={{ ...styles.card, ...styles.otpCards}}>
         <Grid container>
           {/* Left Side - OTP Form */}
           <Grid item xs={12} md={6} sx={styles.leftCard}>
             <CardContent sx={styles.cardContent}>
+              {/* TITLE */}
               <Typography sx={styles.title}>{TextContent.title.otp}</Typography>
+
+              {/* SUBTITLE */}
               <Typography sx={styles.subtitle}>{TextContent.subtitle.otp}</Typography>
 
               {/* OTP Input Fields */}
-              <Box sx={styles.inputGroup} display="flex" gap={2} justifyContent="center">
+              <Box sx={{...styles.inputGroup,...styles.otpInputContainer}} >
                 {otp.map((value, index) => (
                   <TextField
                     key={index}
@@ -87,53 +90,37 @@ export default function OTP({ setAuthComponent }) {
                     variant="outlined"
                     inputProps={{
                       maxLength: 1,
-                      style: { 
-                        textAlign: 'center', 
-                        fontSize: '20px', 
-                        padding: '0', // Remove default padding
-                      },
+                      style: { ...styles.otpDigitStyles },
                     }}
                     // Ensure the input box is square
-                    sx={{ 
-                      width: '3.5rem', 
-                      height: '2.6rem', 
-                      '& .MuiOutlinedInput-root': {
-                        height: '100%', // Ensure the root takes full height
-                        padding: '0', // Remove padding from the root
-                      },
-                      '& .MuiOutlinedInput-input': {
-                        padding: '0', // Remove padding from the input
-                        height: '100%', // Ensure the input takes full height
-                      },
-                    }}
+                    sx={styles.otpBox}
                     inputRef={(el) => (inputRefs.current[index] = el)}
                   />
                 ))}
               </Box>
 
-              {/* Resend OTP Section */}
-              <Box display="flex" justifyContent="space-between" alignItems="center" sx={styles.subtitle}>
-                <Typography
-                  sx={{ cursor: 'pointer', color: '#025043', fontWeight: 'bold' }}
-                  onClick={handleResend}
-                >
+              {/* Resend OTP - Timer Section */}
+              {/* sx={{...styles.subtitle,...styles.rememMeForgotPas}} 2nd is for display flex*/}
+              <Box sx={{...styles.subtitle,...styles.rememMeForgotPass}}>
+                {/* Resend OTP text */}
+                <Typography sx={styles.resendOTP} onClick={handleResend}>
                   {TextContent.links.resendOtp}
                 </Typography>
-                <Typography sx={{ color: 'gray', fontWeight: 'bold' }}>
+
+                {/* Timer */}
+                <Typography sx={styles.timerOTP}>
                   {formatTime(timer)}
                 </Typography>
               </Box>
 
               {error && (
-                <Typography color="error" sx={{ fontSize: '0.7rem', marginTop: '10px' }}>
+                <Typography color="error" sx={styles.errorOTP}>
                   {error}
                 </Typography>
               )}
 
               <Button
                 variant="contained"
-                color="primary"
-                style={{ backgroundColor: '#1f9874' }}
                 sx={{ ...styles.inputField, ...styles.button }}
                 onClick={handleSubmit}
               >
@@ -143,14 +130,7 @@ export default function OTP({ setAuthComponent }) {
               {/* OTP Resent Message */}
               {resendMessage && (
                 <Box
-                  sx={{
-                    backgroundColor: 'rgba(83,182,81,1)',
-                    color: 'white',
-                    padding: '10px',
-                    textAlign: 'center',
-                    borderRadius: '4px',
-                    marginTop: '10px',
-                  }}
+                  sx={styles.resendOTPMessage}
                 >
                   {resendMessage}
                 </Box>

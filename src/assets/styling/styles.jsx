@@ -3,7 +3,7 @@ const styles = {
     padding: "0.625em", // 10px -> 0.625em (relative to font size)
     fontSize: "0.875em", // 14px -> 0.875em
     borderRadius: "0.5em", // 8px -> 0.5em
-    backgroundColor: "teal",
+    backgroundColor: "#1f9874",
     // marginBottom: "1.2rem", // Keep rem for consistent spacing
     textTransform: "none",
     fontFamily: "inter",
@@ -21,14 +21,30 @@ const styles = {
     // overflow: "hidden",
     boxShadow: "0px 5px 15px rgba(0, 0, 0, 0.1)",
   },
+  // FOR SIGNUP PAGE
+  signUpCard:{
+    maxWidth: '840px',
+    maxHeight:'86vh'
+  },
+  // FOR LOGIN PAGE
+  loginCard:{
+    maxWidth: '900px', 
+    maxHeight: 'auto'
+  },
+  // FOR OTP PAGES
+  otpCards:{
+    maxWidth: '780px', 
+    maxHeight: 'auto'
+  },
   imageContainer: {
     width: "50%", // Already responsive
     height: "100%", // Already responsive
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundSize: "cover",
+    // display: "flex",
+    // alignItems: "center",
+    // justifyContent: "center",
+    // backgroundSize: "cover",
     backgroundPosition: "center",
+    display: { xs: 'none', md: 'block' }
   },
   image: {
     width: "100%", // Already responsive
@@ -56,6 +72,12 @@ const styles = {
         fontSize: "0.85rem", // Adjust as needed
       },
   },
+  signUpPasswordInputField:{
+    margin:"3% 0"
+  },
+  loginPasswordInputField:{
+    marginTop: '3%'
+  },
   leftCard: {
     width: "100%", // 25.93rem -> 100% of parent container
     // maxWidth: "25.93rem", // Set a max-width for larger screens
@@ -77,6 +99,18 @@ const styles = {
     width: "100%", // 20rem -> 100% of parent container
     // maxWidth: "20rem", // Set a max-width for larger screens
   },
+  // SUBTITLE FOR SIGNUP
+  signUpSubtitle:{
+    mt:-0.5,
+    mb:0.8
+  },
+  // SUBTITLE FOR LOGIN
+  loginSubtitle:{
+    mt: -0.4, 
+    mb: 1 
+  },
+  
+
   // Added styles for aligning error messages properly
   errorText: {
     fontSize: "0.7rem", // Keep error message font size consistent
@@ -86,6 +120,103 @@ const styles = {
     marginTop:'0.2rem',
     position:"absolute"
   },
+  checkBoxErrorText:{
+    fontSize: '0.7rem', 
+    marginTop: '-18px',
+    position:'relative'
+  },
+
+  orTextStyle:{
+    fontFamily:'inter', 
+    textAlign: 'center', 
+    fontSize: '0.9rem' 
+  },
+  googleButtonStyle:{
+    backgroundColor: '#ffffff', 
+    color:'black'
+  },
+  googleIconStyle:{ 
+    width: '25px', 
+    height: 'auto', 
+    marginRight: '10px' 
+  },
+  // LOGIN YA SIGNUP KRWANE WALA BOTTOM TEXT
+  bottomTextForBoth:{
+    marginTop:'1%',
+    textAlign: 'center', 
+    fontSize: '0.9rem'
+  },
+
+  //wo text jo is page se us page le jayega
+  linkTextStyle:{
+    textDecoration: 'none', 
+    color: '#025043' 
+  },
+
+  // forgot password text
+  forgotPasswordStyle:{ 
+    cursor: 'pointer', 
+    color: '#025043'
+  },
+  // REMEMBER ME FORGOT PASSWORD WALI ROW
+  rememMeForgotPass:{
+    display:'flex',
+    justifyContent:'space-between',
+    alignItems:'center'
+  },
+  // OTP input container, jiske andr dabbe hain
+  otpInputContainer:{
+    display:"flex", 
+    gap:2,
+    justifyContent:"center"
+  },
+  // otp digit ka design
+  otpDigitStyles:{
+    textAlign: 'center', 
+    fontSize: '20px', 
+    padding: '0',
+  },
+  // OTP box ka design
+  otpBox:{
+    width: '3.5rem', 
+    height: '2.6rem', 
+    '& .MuiOutlinedInput-root': {
+      height: '100%', // Ensure the root takes full height
+      padding: '0', // Remove padding from the root
+    },
+    '& .MuiOutlinedInput-input': {
+      padding: '0', // Remove padding from the input
+      height: '100%', // Ensure the input takes full height
+    },
+  },
+  // OTP resend text/link
+  resendOTP:{
+    cursor: 'pointer', 
+    color: '#025043', 
+    fontWeight: 'bold'
+  },
+
+  // OTP timer
+  timerOTP:{
+    color: 'gray', 
+    fontWeight: 'bold'
+  },
+  // OTP error message
+  errorOTP:{
+    fontSize: '0.7rem', 
+    marginTop: '10px'
+  },
+  //resend otp ka messagr
+  resendOTPMessage:{
+    backgroundColor: 
+    'rgba(83,182,81,1)',
+    color: 'white',
+    padding: '10px',
+    textAlign: 'center',
+    borderRadius: '4px',
+    marginTop: '10px',
+  },
+
   
   // ===== ADDED BY CHATGPT: New styles for CardContent Flex Layout =====
   cardContent: {

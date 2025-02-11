@@ -76,22 +76,23 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
 
   return (
     <Container sx={styles.container}>
-      <Card sx={{ ...styles.card, maxWidth: '840px',maxHeight:'86vh'}}>
+      <Card sx={{ ...styles.card, ...styles.signUpCard}}>
         <Grid container>
           {/* Left Side - Signup Form */}
-          <Grid item xs={12} md={6} sx={{ ...styles.leftCard, position: "relative" }}>
+          {/* position:relative hta kr bhi theek kaam kr rha hai */}
+          <Grid item xs={12} md={6} sx={styles.leftCard}>
             <CardContent sx={styles.cardContent}>
 
               {/* TITLE */}
-              <Typography sx={{...styles.title,p:0}}>{TextContent.title.signup}</Typography>
+              <Typography sx={styles.title}>{TextContent.title.signup}</Typography>
 
               {/* SUBTITLE */}
-              <Typography sx={{...styles.subtitle,p:0,mt:-0.5,mb:0.8}}>
+              <Typography sx={{ ...styles.subtitle, ...styles.signUpSubtitle}}>
                 {TextContent.subtitle.signup}
               </Typography>
 
               {/* EMAIL INPUT FIELD */}
-              <Box sx={{ position: "relative" }}>
+              <Box>
                 <TextField
                   sx={styles.inputField}
                   placeholder={TextContent.placeholders.email}
@@ -118,9 +119,10 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
               </Box>
 
               {/* PASSWORD INPUT FIELD */}
-              <Box sx={{position:'relative'}}>
+              <Box>
                 <TextField
-                  sx={{...styles.inputField,margin:"3% 0"}}
+                  sx={{ ...styles.inputField, ...styles.signUpPasswordInputField}}
+                  // for margin->"...styles.signUpPasswordInputField"
                   placeholder={TextContent.placeholders.password}
                   type={showPassword ? "text" : "password"}
                   variant="outlined"
@@ -152,7 +154,7 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
               </Box>
 
               {/* RE-ENTER PASSWORD INPUT FIELD */}
-              <Box sx={{position:'relative'}}>
+              <Box>
                 <TextField
                   sx={styles.inputField}
                   placeholder={TextContent.placeholders.reenterPassword}
@@ -206,31 +208,32 @@ const toggleConfirmPasswordVisibility = () => setShowConfirmPassword(!showConfir
               {/* CHECK BOX KI ERROR HANDLING */}
               {/* helperText={confirmPasswordError && <Typography sx={styles.errorText}>{confirmPasswordError} */}
                {checkboxError && (
-                  <Typography color="error" sx={{ fontSize: '0.7rem', marginTop: '-18px',position:'relative' }}>
+                  <Typography color="error" sx={styles.checkBoxErrorText}>
                     {checkboxError}
                   </Typography>
                )}
               {/* CREATE ACCOUNT BUTTON */}
-              <Button variant="contained" sx={{ ...styles.inputField, ...styles.button, backgroundColor:'#1f9874' }} onClick={handleSubmit}>
+              <Button variant="contained" sx={{ ...styles.inputField, ...styles.button}} onClick={handleSubmit}>
                 {TextContent.buttons.createAccount}
               </Button>
 
               {/* OR -> SIGNUP K LYE */}
-              <Typography sx={{ textAlign: 'center', fontSize: '0.9rem' }}>{TextContent.misc.orText}</Typography>
+              <Typography sx={styles.orTextStyle}>{TextContent.misc.orText}</Typography>
 
               {/* GOOGLE SIGN IN BUTTON */}
               <Button
                 variant="contained"
-                sx={{ ...styles.inputField, ...styles.button, backgroundColor: '#ffffff', color:'black' }}
+                sx={{ ...styles.inputField, ...styles.button, ...styles.googleButtonStyle}}
               >
-                <img src={TextContent.images.googleIcon} alt={TextContent.images.iconAlt} style={{ width: '25px', height: 'auto', marginRight: '10px' }} />
+                {/* GOOGLE ICON */}
+                <img src={TextContent.images.googleIcon} alt={TextContent.images.iconAlt} style={styles.googleIconStyle} />
                 {TextContent.buttons.googleSignIn}
               </Button>
 
-              {/* SIGNUP KRWANE K LIYE */}
-              <Typography sx={{ textAlign: 'center', fontSize: '0.9rem', mt:0.5}}>
+              {/* LOGIN KRWANE K LIYE */}
+              <Typography sx={{ ...styles.subtitle, ...styles.bottomTextForBoth }}>
                 {TextContent.links.alreadyHaveAccount}{' '}
-                <a href="#" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} style={{ textDecoration: 'none', color: '#025043' }}>
+                <a href="#" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} style={styles.linkTextStyle}>
                   {TextContent.buttons.login}
                 </a>
               </Typography>
