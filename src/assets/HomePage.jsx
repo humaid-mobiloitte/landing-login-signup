@@ -1,98 +1,34 @@
 import React from "react";
 import { Box, Typography, TextField, InputAdornment, Button, FormControl,Select, MenuItem } from "@mui/material";
 import { Work, LocationOn, Search } from "@mui/icons-material"; // Import icons
-import styles from "./styling/styles";
+import { TextContent } from "../data/data";
+import mainStyles from "./styling/mainStyles";
 
 const HomePage = () => {
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        fontFamily: "inter",
-        backgroundImage:{md:"url('src/assets/images/HOMESCREEN_background.png')",xs:'none'},
-        // backgroundImage: "url('src/assets/images/landing_page_background.svg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-        minHeight: "91vh", //scrolling rok di
-        mt: { xs: 16, md: 10 },
-        overflow:'hidden'
-      }}
-    >
+    <Box sx={mainStyles.mainContainer}>
+
       {/* Hero Section */}
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          justifyContent: { xs: "center", md: "flex-start" },
-          alignItems: "center",
-          px: { xs: 2, md: 'none' },
-          py: { xs: 4, md: 20 },
-        }}
-      >
+      <Box sx={mainStyles.heroSection}>
+
         {/* Left Content */}
-        <Box
-          sx={{
-            maxWidth: 620,
-            textAlign: { xs: "center", md: "left" },
-            ml: { md: "14%" },
-          }}
-        >
-          <Typography
-            variant="h3"
-            sx={{
-              fontWeight: "900",
-              mb: 2,
-              fontSize: { xs: "2rem", md: "3.4rem" },
-              fontFamily: "inter",
-              lineHeight:'140%'
-            }}
-          >
-            Find Your Dream Job with AI-Powered Recommendations
+        <Box sx={mainStyles.leftContent}>
+
+          {/* TITLE */}
+          <Typography sx={mainStyles.title}>
+            {TextContent.title.homePage}
           </Typography>
-          <Typography
-            variant="subtitle1"
-            color="textPrimary"
-            sx={{ mb: 3, fontSize: { xs: "0.9rem", md: "1.2rem" }, fontFamily: "inter" }}
-          >
-            Upload Your CV And Let Our AI Find The Best Matches For You
+
+          {/* SUBTITLE */}
+          <Typography sx={mainStyles.subtitle}>
+            {TextContent.subtitle.homePage}
           </Typography>
 
           {/* Search Box */}
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: { xs: "column", sm: "row" },
-              // gap: 1,
-              backgroundColor: "#fff",
-              boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)", // Custom shadow
-              borderRadius: 2,
-              p: 1,
-              alignItems: "center",
-              border: "1px solid rgba(0, 0, 0, 0.1)", // Optional border for more definition
-              // YHA SE SHURU KRNA HAI
-              width:"100%"
-            }}
-          >
+          <Box sx={mainStyles.searchBox}>
+            
             {/* Industry Dropdown */}
-            <FormControl
-              
-              size="small"
-              sx={{
-                flex: 1,
-                width: { xs: "100%", sm: "auto" },
-                fontFamily: "inter",
-                "& .MuiOutlinedInput-root": {
-                  "& .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "white",
-                  },
-                },
-                "& .MuiInputBase-input": {
-                  fontSize: "0.8rem",
-                  fontFamily: "inter",
-                },
-              }}
-            >
+            <FormControl size="small" sx={mainStyles.dropdown}>
               <Select
                 displayEmpty
                 defaultValue=""
@@ -102,50 +38,31 @@ const HomePage = () => {
                   </InputAdornment>
                 }
                 renderValue={(selected) =>
-                  selected ? selected : <span style={{ color: "rgba(0, 0, 0, 0.5)" }}>Industry</span>
+                  selected ? selected : <span >{TextContent.labels.homePage.menuSelector}</span>
                 }
-                sx={{padding:'0.2rem'}}
+                // industry placeholder ki visibility kam krne k liye aur padding k liye
+                sx={mainStyles.industryIcon}
               >
                 {/* <MenuItem value="" disabled>
                   Industry
                 </MenuItem> */}
-                <MenuItem value="tech">Technology</MenuItem>
-                <MenuItem value="finance">Finance</MenuItem>
-                <MenuItem value="health">Healthcare</MenuItem>
-                <MenuItem value="education">Education</MenuItem>
+                <MenuItem value="tech">{TextContent.labels.homePage.menuItem1}</MenuItem>
+                <MenuItem value="finance">{TextContent.labels.homePage.menuItem2}</MenuItem>
+                <MenuItem value="health">{TextContent.labels.homePage.menuItem3}</MenuItem>
+                <MenuItem value="education">{TextContent.labels.homePage.menuItem4}</MenuItem>
               </Select>
             </FormControl>
 
 
             {/* Divider */}
-            <Box
-              sx={{
-                display: { xs: "none", md: "block" },
-                height: "1.5rem",
-                width: "1px",
-                backgroundColor: "#ccc",
-              }}
-            />
+            <Box sx={mainStyles.divider}/>
 
             {/* Location Field */}
             <TextField
-              placeholder="Location"
+              placeholder={TextContent.placeholders.homePage.location}
               variant="outlined"
               size="small"
-              sx={{
-                flex: 1,
-                width: { xs: "100%", sm: "auto" },
-                fontFamily: "inter",
-                "& .MuiOutlinedInput-root": {
-                  "& .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "white",
-                  },
-                },
-                "& .MuiInputBase-input::placeholder": {
-                  fontSize: "0.8rem",
-                  fontFamily: "inter",
-                },
-              }}
+              sx={mainStyles.textField}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -157,34 +74,14 @@ const HomePage = () => {
             />
 
             {/* Divider */}
-            <Box
-              sx={{
-                display: { xs: "none", md: "block" },
-                height: "1.5rem",
-                width: "1px",
-                backgroundColor: "#ccc",
-              }}
-            />
+            <Box sx={mainStyles.divider}/>
 
             {/* Search Job Field */}
             <TextField
-              placeholder="Search Job"
+              placeholder={TextContent.placeholders.homePage.searchJob}
               variant="outlined"
               size="small"
-              sx={{
-                flex: 2,
-                width: { xs: "100%", sm: "auto" },
-                fontFamily: "inter",
-                "& .MuiOutlinedInput-root": {
-                  "& .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "white",
-                  },
-                },
-                "& .MuiInputBase-input::placeholder": {
-                  fontSize: "0.8rem",
-                  fontFamily: "inter",
-                },
-              }}
+              sx={mainStyles.textField}
               InputProps={{
                 startAdornment: (
                   <InputAdornment position="start">
@@ -194,17 +91,8 @@ const HomePage = () => {
                 disableUnderline: true,
               }}
             />
-
-            <Button
-              variant="contained"
-              sx={{
-                backgroundColor: "#1f9874",
-                padding: "0.6rem 1.4rem",
-                textTransform:'none',
-                borderRadius:'10px'
-              }}
-            >
-              Find Job
+            <Button variant="contained" sx={mainStyles.searchButton}>
+              {TextContent.buttons.homePage}
             </Button>
           </Box>
 

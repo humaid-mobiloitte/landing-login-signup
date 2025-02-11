@@ -11,8 +11,10 @@ import Stack from '@mui/material/Stack';
 import MenuIcon from '@mui/icons-material/Menu'; // Import MenuIcon
 import Login from './login';
 import Signup from './Signup';
+import { TextContent } from '../data/data';
+import mainStyles from './styling/mainStyles';
 
-const pages = ['Home', 'Browse Jobs', 'Find Job', 'Employer', 'Blog'];
+const pages = [TextContent.labels.topNavBar.menuItem1, TextContent.labels.topNavBar.menuItem2, TextContent.labels.topNavBar.menuItem3, TextContent.labels.topNavBar.menuItem4, TextContent.labels.topNavBar.menuItem5];
 
 function TopNavBar({ setAuthComponent }) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -26,12 +28,12 @@ function TopNavBar({ setAuthComponent }) {
   };
 
   return (
-    <AppBar sx={{ mt: '0.8%', padding: '0 1% 0 1%', background: 'white', boxShadow: 'none', fontFamily: 'inter' }}>
+    <AppBar sx={mainStyles.topNavBar}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* LOGO */}
-          <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-            <img src="src/assets/images/Logo.svg" alt="Logo" style={{ maxWidth: '14rem', height: 'auto' }} />
+          <Box sx={mainStyles.logoContainer}>
+            <img src={TextContent.images.navbar_LOGO} alt={TextContent.images.logoAlt} style={mainStyles.logoImage} />
           </Box>
 
           {/* Responsive Menu Button */}
@@ -82,7 +84,7 @@ function TopNavBar({ setAuthComponent }) {
                     color: 'black',
                   }}
                 >
-                  Sign Up
+                  {TextContent.links.signUp}
                 </Button>
               </MenuItem>
               <MenuItem>
@@ -99,7 +101,7 @@ function TopNavBar({ setAuthComponent }) {
                     borderRadius: '10px',
                   }}
                 >
-                  Login
+                  {TextContent.links.login}
                 </Button>
               </MenuItem>
             </Menu>
@@ -136,10 +138,10 @@ function TopNavBar({ setAuthComponent }) {
               onClick={() => setAuthComponent(<Signup setAuthComponent={setAuthComponent} />)}
               sx={{ border: 'none', boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)', color: 'black', textTransform: 'none', fontFamily: 'inter',fontWeight:'300',fontSize:'1rem'}}
             >
-              Sign Up
+              {TextContent.links.signUp}
             </Button>
             <Button variant="contained" onClick={() => setAuthComponent(<Login setAuthComponent={setAuthComponent} />)} sx={{ backgroundColor: '#1f9874', textTransform: 'none', fontFamily: 'inter',fontWeight:'300',fontSize:'1rem' }}>
-              Login
+            {TextContent.links.login}
             </Button>
           </Stack>
         </Toolbar>

@@ -163,7 +163,7 @@ export default function Login({ setAuthComponent }) {
                 }}
               >
                 <img
-                  src='src/assets/images/icons8-google.svg' alt='google icon' style={{ width: '20px', marginRight: '8px' }}
+                  src={TextContent.images.googleIcon} alt={TextContent.images.iconAlt} style={{ width: '20px', marginRight: '8px' }}
                 />
                 {TextContent.buttons.googleSignIn}
               </Button>

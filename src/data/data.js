@@ -1,5 +1,6 @@
 export const TextContent = {
     title: {
+      homePage:"Find Your Dream Job with AI-Powered Recommendations",
       login: "Login now",
       signup: "Create Your Account",
       otp: "OTP Verification",
@@ -8,6 +9,7 @@ export const TextContent = {
     },
   
     subtitle: {
+      homePage:"Upload Your CV And Let Our AI Find The Best Matches For You",
       login: "Welcome back! Please enter your details below. Lorem ipsum dolor sit amet consectetur.",
       signup: "To get started, please create an account with us. It's a quick and straightforward process that will only take a few minutes.",
       otp: "Please enter the 6-digit verification code that was sent to your email. The code is valid for 3 minutes.",
@@ -18,15 +20,34 @@ export const TextContent = {
       email: "Enter email address",
       password: "Enter password",
       reenterPassword: "Re-enter password",
+      homePage:{
+        location:"Location",
+        searchJob:"Search Job",
+      }
     },
   
     labels: {
       rememberMe: "Remember me",
       forgotPassword: "Forgot password?",
       termsAndConditions: "I agree to your Terms & Conditions and Privacy Policy.",
+      homePage:{
+        menuSelector:"Industry",
+        menuItem1:"Technology",
+        menuItem2:"Finance",
+        menuItem3:"Healthcare",
+        menuItem4:"Education",
+      },
+      topNavBar:{
+        menuItem1:"Home",
+        menuItem2:"Browse Jobs",
+        menuItem3:"Find Job",
+        menuItem4:"Employer",
+        menuItem5:"Blog",
+      }
     },
   
     buttons: {
+      homePage:"Find Job",
       login: "Log in",
       createAccount: "Create an account",
       googleSignIn: "Sign in with Google",
@@ -76,9 +97,16 @@ export const TextContent = {
     },
 
     images:{
+      navbar_LOGO:"src/assets/images/Logo.svg",
+      backgroundImage:"url('src/assets/images/HOMESCREEN_background.png')",
       login:"src/assets/images/login_right_image.png",
       signup:"src/assets/images/signup_right_image.png",
       otp:"src/assets/images/otp_first_image.svg",
       otpSuccess:"src/assets/images/otp_success_image.svg",
+      googleIcon:"src/assets/images/icons8-google.svg",
+      imagesAlt:"image not found",
+      iconAlt:"icon not found",
+      logoAlt:"Logo not found"
     }
+
   };  
